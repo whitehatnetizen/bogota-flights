@@ -1,0 +1,357 @@
+direction,date,carrier,price_aud,via,duration,airline_as_shown
+out,2026-11-01,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-11-01,QF/LA,2024,SYD and SCL and LIM,39 hr 5 min,"Qantas, LATAM, AviancaOperated by Qantas"
+out,2026-11-01,other,3482,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-11-05,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-11-05,QF/LA,2167,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2026-11-05,other,3332,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-11-09,AC,1425,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-11-09,QF/LA,2024,SYD and SCL and LIM,38 hr 30 min,"Qantas, LATAM, Avianca"
+out,2026-11-09,other,3332,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-11-13,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-11-13,QF/LA,2058,SYD and SCL,30 hr 20 min,"Qantas, Avianca"
+out,2026-11-13,other,3332,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-11-17,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-11-17,QF/LA,1916,SYD and SCL,30 hr 10 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2026-11-17,other,2316,DOH,33 hr 45 min,Qatar Airways
+out,2026-11-20,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-11-20,QF/LA,2250,MEL and SCL,29 hr 10 min,"Qantas, LATAMOperated by Qantas for Lata"
+out,2026-11-20,other,2332,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar AirwaysOperated "
+out,2026-11-21,AC,2066,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-11-21,QF/LA,2193,SYD and SCL,41 hr 15 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2026-11-21,other,2321,DOH,33 hr 45 min,Qatar Airways
+out,2026-11-25,AC,2545,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-11-25,QF/LA,2177,SYD and SCL and LIM,30 hr 40 min,"Qantas, LATAM, Avianca"
+out,2026-11-25,other,3332,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-11-29,AC,2693,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-11-29,QF/LA,2349,MEL and SCL,31 hr 10 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-11-29,other,4097,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-12-01,AC,2766,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-01,QF/LA,2509,SYD and SCL and LIM,36 hr 35 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-01,other,2588,DOH,33 hr 45 min,Qatar Airways
+out,2026-12-03,AC,2636,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-03,QF/LA,2477,MEL and SCL,31 hr 10 min,"Qantas, LATAMOperated by Qantaslink - Na"
+out,2026-12-03,other,14827,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2026-12-05,AC,2588,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-05,QF/LA,2477,MEL and SCL,29 hr 10 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-05,other,2963,DOH,33 hr 45 min,Qatar Airways
+out,2026-12-07,AC,2636,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-07,QF/LA,2477,MEL and SCL,30 hr 10 min,"Qantas, LATAMOperated by Qantaslink - Na"
+out,2026-12-07,other,2931,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar AirwaysOperated "
+out,2026-12-09,AC,2773,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-09,QF/LA,2476,SYD and SCL,40 hr 25 min,"Qantas, Avianca"
+out,2026-12-09,other,4397,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-12-11,AC,3310,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-11,QF/LA,2953,SYD and SCL,30 hr 10 min,"Qantas, LATAMOperated by Qantas for Lata"
+out,2026-12-11,other,3474,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2026-12-13,AC,3603,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-13,QF/LA,3200,MEL and SCL,29 hr 10 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-13,other,15559,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2026-12-15,AC,3546,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-15,QF/LA,3018,MEL and SCL,29 hr 10 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-15,other,3396,DOH,33 hr 45 min,Qatar Airways
+out,2026-12-17,AC,4618,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-17,QF/LA,3200,MEL and SCL,29 hr 10 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-17,other,6216,TPE and YYZ,46 hr 15 min,"EVA Air, Avianca"
+out,2026-12-18,AC,5065,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-18,QF/LA,3268,AKL and SCL,35 hr 5 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-18,other,3489,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2026-12-19,AC,5613,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-19,QF/LA,3400,SYD and SCL,31 hr 10 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2026-12-19,other,3439,DOH,33 hr 45 min,Qatar Airways
+out,2026-12-20,AC,5065,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-20,QF/LA,3242,MEL and SCL,29 hr 10 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-20,other,15559,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2026-12-21,AC,4358,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-21,QF/LA,3200,MEL and SCL,29 hr 10 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2026-12-21,other,3446,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2026-12-23,AC,3780,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-23,QF/LA,2604,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2026-12-23,other,5662,DXB and YYZ,66 hr 55 min,"Emirates, Avianca"
+out,2026-12-25,AC,2829,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-25,QF/LA,2518,MEL and SCL,31 hr 10 min,"Qantas, LATAMOperated by Qantaslink - Na"
+out,2026-12-25,other,2998,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2026-12-27,AC,3603,YVR and YYZ,33 hr 35 min,Air Canada
+out,2026-12-27,QF/LA,2483,MEL and SCL,31 hr 10 min,"Qantas, LATAMOperated by Qantaslink - Na"
+out,2026-12-27,other,4798,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2026-12-29,AC,2928,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-29,QF/LA,2342,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2026-12-29,other,2920,DOH,33 hr 45 min,Qatar Airways
+out,2026-12-31,AC,2772,YVR and YUL,33 hr 35 min,Air Canada
+out,2026-12-31,QF/LA,2193,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2026-12-31,other,3633,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2027-01-02,AC,4083,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-02,QF/LA,2373,SYD and SCL and LIM,44 hr,"Qantas, LATAMOperated by Latam Airlines "
+out,2027-01-02,other,2963,DOH,33 hr 45 min,Qatar Airways
+out,2027-01-04,AC,3676,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-04,QF/LA,2210,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-01-04,other,2970,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-01-06,AC,3683,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-01-06,QF/LA,2193,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-01-06,other,3332,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2027-01-08,AC,4090,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-01-08,QF/LA,2193,SYD and SCL,31 hr 10 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-01-08,other,2681,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-01-10,AC,3733,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-01-10,QF/LA,2177,SYD and SCL and LIM,39 hr 5 min,"Qantas, LATAM, AviancaOperated by Qantas"
+out,2027-01-10,other,3332,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2027-01-12,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-12,QF/LA,2191,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-01-12,other,2588,DOH,33 hr 45 min,Qatar Airways
+out,2027-01-14,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-14,QF/LA,2175,SYD and SCL and LIM,39 hr 5 min,"Qantas, LATAM, Avianca"
+out,2027-01-14,other,14827,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-01-16,AC,2066,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-16,QF/LA,2336,SYD and SCL and LIM,31 hr 10 min,"Qantas, LATAM, Avianca"
+out,2027-01-16,other,2536,DOH,33 hr 45 min,Qatar Airways
+out,2027-01-18,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-18,QF/LA,2191,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-01-18,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-01-20,AC,1425,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-01-20,QF/LA,2024,SYD and SCL and LIM,39 hr 5 min,"Qantas, LATAM, Avianca"
+out,2027-01-20,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-01-22,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-01-22,QF/LA,2175,SYD and SCL and LIM,39 hr 5 min,"Qantas, LATAM, Avianca"
+out,2027-01-22,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-01-24,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-01-24,QF/LA,2175,SYD and SCL and LIM,31 hr 15 min,"Qantas, LATAM, AviancaOperated by Qantas"
+out,2027-01-24,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-01-26,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-26,QF/LA,2175,SYD and SCL and LIM,31 hr 10 min,"Qantas, LATAM, Avianca"
+out,2027-01-26,other,2410,DOH,33 hr 45 min,Qatar Airways
+out,2027-01-28,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-28,QF/LA,2167,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-01-28,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-01-30,AC,1518,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-01-30,QF/LA,2042,SYD and SCL,41 hr 15 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-01-30,other,2453,DOH,33 hr 45 min,Qatar Airways
+out,2027-02-01,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-01,QF/LA,2019,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-02-01,other,2460,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-02-03,AC,1425,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-02-03,QF/LA,2019,SYD and SCL,41 hr 15 min,"Qantas, Avianca"
+out,2027-02-03,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-02-05,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-02-05,QF/LA,1901,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-02-05,other,2503,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-02-07,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-02-07,QF/LA,1788,SYD and SCL and LIM,39 hr 5 min,"Qantas, LATAM, AviancaOperated by Qantas"
+out,2027-02-07,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-02-09,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-09,QF/LA,1788,SYD and SCL and LIM,30 hr 10 min,"Qantas, LATAM, AviancaOperated by Latam "
+out,2027-02-09,other,2588,DOH,33 hr 45 min,Qatar Airways
+out,2027-02-11,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-11,QF/LA,1924,SYD and SCL,40 hr 20 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-02-11,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-02-13,AC,1518,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-13,QF/LA,1788,SYD and SCL and LIM,31 hr 10 min,"Qantas, LATAM, Avianca"
+out,2027-02-13,other,2502,SYD and DOH,37 hr 35 min,"Virgin Australia, Qatar AirwaysOperated "
+out,2027-02-15,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-15,QF/LA,1951,SYD and SCL and LIM,43 hr 5 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2027-02-15,other,2445,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-02-17,AC,1425,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-02-17,QF/LA,1803,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-02-17,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-02-19,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-02-19,QF/LA,1905,SYD and SCL and LIM,31 hr 15 min,"Qantas, LATAM, Avianca"
+out,2027-02-19,other,2488,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-02-21,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-02-21,QF/LA,2024,SYD and SCL and LIM,39 hr 5 min,"Qantas, LATAM, AviancaOperated by Qantas"
+out,2027-02-21,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-02-23,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-23,QF/LA,1803,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-02-23,other,2410,DOH,33 hr 45 min,Qatar Airways
+out,2027-02-25,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-25,QF/LA,1765,SYD and SCL,30 hr 35 min,"Qantas, LATAMOperated by Wamos for Latam"
+out,2027-02-25,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-02-27,AC,2066,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-02-27,QF/LA,1905,SYD and SCL and LIM,31 hr 10 min,"Qantas, LATAM, Avianca"
+out,2027-02-27,other,2453,DOH,33 hr 45 min,Qatar Airways
+out,2027-03-01,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-03-01,QF/LA,1901,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-03-01,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-03-03,AC,1425,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-03-03,QF/LA,1803,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-03-03,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-03-05,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-03-05,QF/LA,1905,SYD and SCL and LIM,30 hr 40 min,"Qantas, LATAM, Avianca"
+out,2027-03-05,other,2503,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-03-07,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-03-07,QF/LA,1788,SYD and SCL and LIM,31 hr 15 min,"Qantas, LATAM, AviancaOperated by Qantas"
+out,2027-03-07,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-03-09,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-03-09,QF/LA,1803,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-03-09,other,2410,DOH,33 hr 45 min,Qatar Airways
+out,2027-03-11,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-03-11,QF/LA,1765,SYD and SCL,30 hr 35 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2027-03-11,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-03-13,AC,2066,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-03-13,QF/LA,1919,SYD and SCL,45 hr,"Qantas, Avianca"
+out,2027-03-13,other,2453,DOH,33 hr 45 min,Qatar Airways
+out,2027-03-17,AC,1425,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-03-17,QF/LA,1803,SYD and SCL,39 hr 30 min,"Qantas, Avianca"
+out,2027-03-17,other,3250,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-03-19,AC,1525,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-03-19,QF/LA,1809,SYD and SCL and LIM,37 hr 35 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2027-03-19,other,2488,MEL and DOH,58 hr 45 min,"Virgin Australia, Qatar Airways"
+out,2027-03-21,AC,2073,YVR and YYZ,33 hr 35 min,Air Canada
+out,2027-03-21,QF/LA,1836,SYD and SCL and LIM,43 hr 5 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2027-03-21,other,3332,DXB and LHR,40 hr 40 min,"Emirates, Avianca"
+out,2027-03-23,AC,1418,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-03-23,QF/LA,1809,SYD and SCL and LIM,33 hr 20 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2027-03-23,other,2410,DOH,33 hr 45 min,Qatar Airways
+out,2027-03-25,AC,2001,YVR and YUL,33 hr 35 min,Air Canada
+out,2027-03-25,QF/LA,1901,SYD and SCL,30 hr 20 min,"Qantas, Avianca"
+out,2027-03-25,other,14827,DXB and MAD,38 hr 50 min,"Emirates, Avianca"
+out,2027-03-27,AC,1518,YVR and YUL,33 hr 20 min,Air Canada
+out,2027-03-27,QF/LA,1836,SYD and SCL and LIM,45 hr 35 min,"Qantas, LATAMOperated by Latam Airlines "
+out,2027-03-27,other,2453,DOH,33 hr 10 min,Qatar Airways
+out,2027-03-29,AC,2008,YVR and YYZ,33 hr 5 min,Air Canada
+out,2027-03-29,QF/LA,2038,SYD and SCL,39 hr 45 min,"Qantas, Avianca"
+out,2027-03-29,other,3250,DXB and MAD,38 hr 30 min,"Emirates, Avianca"
+out,2027-03-31,AC,1425,YVR and YYZ,33 hr 5 min,Air Canada
+out,2027-03-31,QF/LA,1815,SYD and SCL and LIM,40 hr,"Qantas, LATAM, Avianca"
+out,2027-03-31,other,3250,DXB and MAD,38 hr 30 min,"Emirates, Avianca"
+back,2026-12-31,AC,6009,YYZ and YVR,32 hr 45 min,Air Canada
+back,2026-12-31,QF/LA,2750,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2026-12-31,other,4197,LHR and DXB,40 hr 5 min,"Avianca, Emirates"
+back,2027-01-04,AC,6431,CUN and YVR,34 hr 5 min,"Avianca, Air Canada"
+back,2027-01-04,QF/LA,3593,SCL and MEL,35 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-01-04,other,4548,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-01-08,AC,8550,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-01-08,QF/LA,4177,SCL and MEL,35 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-01-08,other,4548,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-01-12,AC,3582,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-01-12,QF/LA,3995,SCL and SYD,33 hr 55 min,"LATAM, QantasAir Tahiti NuiOperated by L"
+back,2027-01-12,other,4854,LHR and DXB,40 hr 5 min,"Avianca, Emirates"
+back,2027-01-16,AC,3347,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-01-16,QF/LA,4370,SCL and MEL,35 hr 15 min,"Avianca, LATAM, QantasOperated by Qantas"
+back,2027-01-16,other,4127,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-01-20,AC,3110,YUL and YVR,56 hr 45 min,Air Canada
+back,2027-01-20,QF/LA,4037,SCL and SYD,33 hr 55 min,"LATAM, QantasAir Tahiti NuiOperated by L"
+back,2027-01-20,other,3373,CCS and DOH and SYD,36 hr 35 min,"Qatar Airways, Virgin Australia"
+back,2027-01-24,AC,2994,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-01-24,QF/LA,3493,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-01-24,other,3337,CCS and DOH,37 hr 30 min,"Qatar Airways, Virgin AustraliaOperated "
+back,2027-01-28,AC,2882,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-01-28,QF/LA,3310,BOS and AUH and SYD,53 hr 15 min,"Avianca, Etihad, QantasOperated by Qanta"
+back,2027-01-28,other,3361,YYZ and DXB,55 hr 35 min,"Avianca, Emirates"
+back,2027-01-30,AC,2882,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-01-30,QF/LA,3368,SCL and MEL,34 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-01-30,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-01,AC,2882,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-02-01,QF/LA,3203,SCL and MEL,29 hr 10 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-01,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-03,AC,2992,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-03,QF/LA,2750,SCL and MEL,35 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-03,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-05,AC,2875,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-05,QF/LA,2746,SCL and SYD,29 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-05,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-07,AC,2875,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-07,QF/LA,2742,SCL and MEL,29 hr 10 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-07,other,3337,CCS and DOH,37 hr 30 min,"Qatar Airways, Virgin AustraliaOperated "
+back,2027-02-09,AC,2875,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-09,QF/LA,2701,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-09,other,4312,BCN and DXB,39 hr 35 min,"Avianca, Emirates"
+back,2027-02-11,AC,2998,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-02-11,QF/LA,2701,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-11,other,4151,BCN and DXB,39 hr 35 min,"Avianca, Emirates"
+back,2027-02-13,AC,2882,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-02-13,QF/LA,2733,SCL and SYD,28 hr 55 min,"LATAM, QantasAir Tahiti NuiOperated by L"
+back,2027-02-13,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-15,AC,2882,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-02-15,QF/LA,2701,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-15,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-17,AC,2877,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-17,QF/LA,2742,SCL and MEL,29 hr 10 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-17,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-19,AC,2877,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-19,QF/LA,2735,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-19,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-02-21,AC,2877,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-21,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-21,other,3339,CCS and DOH,37 hr 30 min,"Qatar Airways, Virgin AustraliaOperated "
+back,2027-02-23,AC,2877,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-02-23,QF/LA,2657,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-23,other,4219,LHR and DXB,40 hr 5 min,"Avianca, Emirates"
+back,2027-02-25,AC,2884,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-02-25,QF/LA,2750,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-25,other,4173,BCN and DXB,39 hr 35 min,"Avianca, Emirates"
+back,2027-02-27,AC,2884,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-02-27,QF/LA,2701,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-02-27,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-03-08,AC,2884,YYZ and YVR,32 hr 45 min,Air Canada
+back,2027-03-08,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-03-08,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-03-09,AC,2877,YUL and YVR,32 hr 45 min,Air Canada
+back,2027-03-09,QF/LA,2733,SCL and SYD,28 hr 55 min,"LATAM, QantasAir Tahiti NuiOperated by L"
+back,2027-03-09,other,3361,YYZ and DXB,55 hr 35 min,"Avianca, Emirates"
+back,2027-03-13,AC,2884,YYZ and YVR,31 hr 45 min,Air Canada
+back,2027-03-13,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-03-13,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-03-15,AC,2884,YYZ and YVR,31 hr 45 min,Air Canada
+back,2027-03-15,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-03-15,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-03-18,AC,2884,YYZ and YVR,31 hr 45 min,Air Canada
+back,2027-03-18,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-03-18,other,4219,LHR and DXB,40 hr 5 min,"Avianca, Emirates"
+back,2027-03-20,AC,2884,YYZ and YVR,31 hr 45 min,Air Canada
+back,2027-03-20,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-03-20,other,3185,MAD and DOH,36 hr 30 min,"Iberia, Qatar Airways"
+back,2027-03-21,AC,2877,YUL and YVR,31 hr 45 min,Air Canada
+back,2027-03-21,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-03-21,other,3339,CCS and DOH,37 hr 30 min,"Qatar Airways, Virgin AustraliaOperated "
+back,2027-03-25,AC,2885,YYZ and YVR,31 hr 45 min,Air Canada
+back,2027-03-25,QF/LA,2450,SCL and MEL,30 hr 20 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-03-25,other,3361,YYZ and DXB,55 hr 35 min,"Avianca, Emirates"
+back,2027-04-06,AC,2878,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-04-06,QF/LA,2450,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-04-06,other,3618,GIG and DXB,39 hr 15 min,"Avianca, Emirates"
+back,2027-04-10,AC,2878,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-04-10,QF/LA,2658,SCL and SYD,30 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-04-10,other,3184,MAD and DOH,37 hr 55 min,"Iberia, Qatar Airways"
+back,2027-04-14,AC,2885,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-04-14,QF/LA,2733,SCL and SYD,30 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-04-14,other,3202,MAD and BCN and DOH,37 hr 55 min,"Iberia, Qatar Airways"
+back,2027-04-18,AC,2885,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-04-18,QF/LA,2658,SCL and SYD,30 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-04-18,other,3340,CCS and DOH,38 hr 20 min,"Qatar Airways, Virgin AustraliaOperated "
+back,2027-04-22,AC,2878,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-04-22,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-04-22,other,3361,YYZ and DXB,55 hr 15 min,"Avianca, Emirates"
+back,2027-04-26,AC,2872,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-04-26,QF/LA,2701,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-04-26,other,3185,MAD and DOH,37 hr 55 min,"Iberia, Qatar Airways"
+back,2027-05-04,AC,2875,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-05-04,QF/LA,2450,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-05-04,other,3599,GIG and DXB,39 hr 15 min,"Avianca, Emirates"
+back,2027-05-08,AC,2874,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-05-08,QF/LA,2450,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-05-08,other,3729,MAD and DOH,37 hr 55 min,"Iberia, Qatar Airways"
+back,2027-05-12,AC,2872,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-05-12,QF/LA,2783,SCL and SYD,30 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-05-12,other,3370,CCS and DOH and PER,44 hr 30 min,"Qatar Airways, Virgin Australia"
+back,2027-05-16,AC,2881,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-05-16,QF/LA,2783,SCL and SYD,30 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-05-16,other,3360,CCS and DOH,38 hr 20 min,"Qatar Airways, Virgin AustraliaOperated "
+back,2027-05-20,AC,2873,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-05-20,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-05-24,AC,2880,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-05-24,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-05-28,AC,2880,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-05-28,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-06-01,AC,2873,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-06-01,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-06-05,AC,2873,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-06-05,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-06-09,AC,3344,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-06-09,QF/LA,2733,SCL and SYD,30 hr 30 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-06-17,AC,2873,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-06-17,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-06-21,AC,2880,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-06-21,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-06-25,AC,2996,YYZ and YVR,31 hr 5 min,Air Canada
+back,2027-06-25,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "
+back,2027-06-29,AC,2967,YUL and YVR,31 hr 5 min,Air Canada
+back,2027-06-29,QF/LA,2700,SCL and MEL,30 hr 5 min,"LATAM, QantasOperated by Latam Airlines "

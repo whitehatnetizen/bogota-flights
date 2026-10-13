@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flights to Bogotá</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root[data-mode="light"], :root {
+    --bg:#f1ece1; --card:#f9f6ee; --ink:#26201b; --sec:#6e6353; --line:#d8cfbe;
+    --acc:#7d2f2b; --brass:#a08148;
+    --c1:#9e3a32; --c2:#009b8a; --c3:#b08c3d; --c4:#4762b3;
+    --font-display:'Zodiak', Georgia, serif;
+    --font-body:'General Sans', system-ui, sans-serif;
+    --font-data:'Fragment Mono', monospace;
+  }
+  :root[data-mode="dark"] {
+    --bg:#14100d; --card:#1d1814; --ink:#e9e1d2; --sec:#a39682; --line:#372e25;
+    --acc:#c25545; --brass:#b58a2e;
+    --c1:#c25545; --c2:#2aa895; --c3:#b58a2e; --c4:#6c8bd9;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0 auto; background:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:13.5px; line-height:1.55; padding:0 clamp(16px,4vw,56px) 64px; max-width:1060px; }
+  :focus-visible { outline:2px solid var(--acc); outline-offset:2px; }
+  .double-rule { border-top:2px solid var(--ink); border-bottom:1px solid var(--ink); height:5px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px 24px; padding:14px 0 10px; }
+  h1 { font-family:var(--font-display); font-weight:700; font-size:clamp(24px,4vw,32px); margin:0; }
+  .issue { font-family:var(--font-data); font-size:10px; letter-spacing:0.14em; color:var(--sec); }
+  section { margin-top:36px; }
+  .sect-head { border-top:2px solid var(--ink); padding-top:8px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px 16px; }
+  .sect-head h2 { font-family:var(--font-body); font-weight:600; font-size:13.5px; margin:0; }
+  p { max-width:60ch; margin:0 0 10px; }
+  .panel { border:1px solid var(--line); background:var(--card); border-radius:2px; padding:16px 18px; }
+  .callout { border:1px solid var(--line); background:var(--card); padding:12px 14px; border-left:3px solid var(--acc); max-width:64ch; margin:14px 0; }
+  .callout.aside { border-left-color:var(--brass); }
+  .callout p:last-child { margin-bottom:0; }
+  table { border-collapse:collapse; width:100%; }
+  th { text-align:left; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--sec); border-bottom:1px solid var(--ink); padding:6px 8px; vertical-align:bottom; }
+  td { border-bottom:1px solid var(--line); padding:7px 8px; vertical-align:top; }
+  td.num, th.num { font-family:var(--font-data); text-align:right; font-variant-numeric:tabular-nums; }
+  td.mono { font-family:var(--font-data); font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .table-wrap { overflow-x:auto; }
+  table.wide { min-width:680px; }
+  #all { min-width:680px; }
+  #rf { min-width:560px; }
+  .btn.cell { padding:5px 8px; min-height:0; font-family:var(--font-data); font-weight:400; }
+  .btn.cell.low { border-color:var(--ink); }
+  .btn { font-family:var(--font-body); font-weight:600; font-size:12px; padding:8px 14px; border-radius:2px; cursor:pointer; border:1px solid var(--ink); background:none; color:var(--ink); min-height:36px; }
+  .btn.primary { background:var(--ink); color:var(--bg); }
+  .btn.quiet { border-color:var(--line); }
+  .seg { display:inline-flex; border:1px solid var(--line); border-radius:2px; }
+  .seg button { font-family:var(--font-data); font-size:11px; letter-spacing:0.06em; padding:7px 12px; background:none; border:0; border-right:1px solid var(--line); color:var(--ink); cursor:pointer; min-height:36px; }
+  .seg button:last-child { border-right:0; }
+  .seg button[aria-pressed="true"] { background:var(--ink); color:var(--bg); }
+  .mode-toggle { font-family:var(--font-data); font-size:10px; letter-spacing:0.1em; background:none; border:1px solid var(--line); color:var(--ink); padding:5px 10px; cursor:pointer; border-radius:2px; }
+  .src { font-family:var(--font-data); font-size:9.5px; letter-spacing:0.1em; color:var(--sec); margin-top:8px; }
+  .controls { display:flex; flex-wrap:wrap; gap:14px 28px; align-items:flex-end; }
+  .field label { display:block; font-size:10px; text-transform:uppercase; letter-spacing:0.14em; color:var(--sec); margin-bottom:4px; }
+  .field input { font-family:var(--font-data); font-size:13px; padding:7px 9px; border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:2px; min-height:40px; }
+  .quick { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  output { display:block; margin-top:18px; }
+  .stamp { font-family:var(--font-data); font-size:11px; letter-spacing:0.08em; color:var(--sec); }
+  .price-row { display:grid; grid-template-columns:1fr auto; gap:6px 18px; align-items:baseline; padding:10px 0; border-top:1px solid var(--line); }
+  .price-row:first-child { border-top:none; }
+  .price-row .who { font-weight:600; }
+  .meta { color:var(--sec); font-size:12.5px; }
+  .price-row .amt { font-family:var(--font-data); font-size:22px; font-variant-numeric:tabular-nums; }
+  .price-row .amt small { font-size:11px; color:var(--sec); letter-spacing:0.1em; margin-right:4px; }
+  .none { color:var(--sec); }
+  .gf { margin-top:14px; }
+  a { color:var(--acc); }
+  a.btn.primary { text-decoration:none; display:inline-block; }
+  /* Popups: airport codes and fare breakdowns. Hover, keyboard focus and tap all open them. */
+  .ap, .fare { border-bottom:1px dotted var(--sec); cursor:help; }
+  .ap { font-family:var(--font-data); font-variant-numeric:tabular-nums; }
+  #tip { position:absolute; z-index:10; max-width:280px; background:var(--card); color:var(--ink); border:1px solid var(--ink); border-radius:2px; padding:8px 10px; font-size:12px; line-height:1.45; pointer-events:none; }
+  #tip[hidden] { display:none; }
+  #tip .t-head { font-family:var(--font-data); font-size:10px; letter-spacing:0.1em; color:var(--sec); margin-bottom:3px; }
+  #tip table { width:auto; }
+  #tip td { padding:2px 8px 2px 0; border:0; }
+  #tip td.num { padding-right:0; }
+  svg { display:block; width:100%; height:auto; }
+  .bar { cursor:pointer; }
+  .bar rect { opacity:0.82; }
+  .bar rect.hit { opacity:1; }
+  .bar:hover rect, .bar:focus rect { opacity:1; }
+  .bar.sel rect { opacity:1; stroke:var(--ink); stroke-width:1; }
+  .bar.sel rect.hit { stroke:none; }
+  .axis { font-family:var(--font-data); font-size:9.5px; fill:var(--sec); }
+  .dlabel { font-family:var(--font-data); font-size:10px; fill:var(--ink); }
+  .grid { stroke:var(--line); stroke-width:1; }
+  .base { stroke:var(--ink); stroke-width:2; }
+  .xmas { stroke:var(--brass); stroke-width:1; stroke-dasharray:3 3; }
+  .key { display:flex; gap:22px; font-family:var(--font-data); font-size:10.5px; letter-spacing:0.06em; margin:6px 0 4px; }
+  .key span::before { content:""; display:inline-block; width:10px; height:10px; margin-right:6px; vertical-align:-1px; }
+  .key .k1::before { background:var(--c1); }
+  .key .k4::before { background:var(--c4); }
+  .returns { margin-top:16px; }
+  .sorts { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; margin-bottom:10px; }
+  .sorts .lbl { font-size:10px; text-transform:uppercase; letter-spacing:0.14em; color:var(--sec); }
+  @media (max-width:640px) { .price-row { grid-template-columns:1fr; } }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="double-rule"></div>
+  <div class="masthead">
+    <h1>Flights to Bogotá</h1>
+    <span class="issue">SNAPSHOT 2026-09-11 · MID-NOVEMBER RE-PRICED 2026-10-13 · BNE TO BOG RETURN · ECONOMY · AUD · NO US TRANSIT</span>
+    <button class="mode-toggle" id="mode">DARK MODE</button>
+  </div>
+  <div class="double-rule"></div>
+</header>
+
+<section>
+  <div class="sect-head"><h2>Leaving mid-November, back in January: prices on 13 October 2026</h2>
+    <div class="seg" role="group" aria-label="Routing" id="rf-route">
+      <button type="button" data-route="QF/LA" aria-pressed="true">QANTAS + LATAM</button>
+      <button type="button" data-route="AC" aria-pressed="false">AIR CANADA</button>
+      <button type="button" data-route="QR" aria-pressed="false">QATAR</button>
+    </div>
+  </div>
+  <p>Every departure from 10 to 20 November was priced again on 13 October 2026 against six return dates in January, 66 date pairs in all. The search is the same as September's: one adult in economy, return ticket, US airports excluded, and anything over 36 hours or with three stops left out. The rest of this page still shows the 11 September prices.</p>
+  <div class="table-wrap">
+    <table id="rf"></table>
+  </div>
+  <p class="meta" id="rf-note" style="margin-top:8px"></p>
+  <div class="callout aside">
+    <p><strong>Qantas and LATAM</strong> cost A$3,779 to A$4,885. The return date sets the price here: coming back on 31 January costs A$3,779 to A$4,118, and every earlier return sampled costs A$4,071 to A$4,885. The departure day makes little difference: for any one return date the eleven departure days sit within about A$550 of each other. The routing now runs through Sydney or Melbourne and then Santiago, not Auckland, and 59 of the 66 cheapest fares include a flight operated by Wamos for LATAM. Google showed a fare without one on 41 of those 59 pairs: on 35 it cost A$30 to A$1,660 more, and on the other six it was a far dearer routing through Auckland.</p>
+    <p><strong>Air Canada</strong> is still the cheapest at A$2,119 to A$3,992, and still needs the Canadian visa.</p>
+    <p><strong>Qatar Airways is new.</strong> In September it was not sold as a return ticket. It now is, through <span class="ap" data-ap="DOH" tabindex="0">DOH</span> with one stop and 33 h 30 on the way out. It showed a fare on three of the eleven departures (Tuesday 10, Saturday 14 and Tuesday 17 November) and two of the six returns (Wednesday 6 and Sunday 31 January): A$3,582 to A$3,623 coming back on 31 January, which is A$188 to A$536 under Qantas and LATAM on the same dates, and A$4,441 to A$4,483 coming back on 6 January. The other four return dates fall on days with no Qatar fare, so its other January returns are not priced yet. Also not checked yet: the transit rules at Doha for a Colombian passport, and the routing of the flight back.</p>
+    <p><strong>Against September.</strong> One pair was priced both times, 17 November to 16 January: Qantas and LATAM went from A$4,927 to A$4,233, and Air Canada from A$2,926 to A$3,505.</p>
+  </div>
+  <div class="src">SOURCE: GOOGLE FLIGHTS, 13 OCT 2026, US AIRPORTS EXCLUDED, LOWEST SHOWN ECONOMY RETURN FARE · 2026-10-13_scan.csv IN THIS FOLDER</div>
+</section>
+
+<section>
+  <div class="sect-head"><h2>What the 11 September search found</h2></div>
+  <p>Brisbane to Bogotá and back, one adult in economy, two or three months in Colombia, leaving any time from November 2026 to March 2027, never touching the USA. Google Flights was searched with every US airport removed from its connecting-airports filter: departures every four days from 1 November to 31 March, each with a return about 60 days and about 90 days later, plus extra pairs around Christmas and around the cheapest dates. One-way fares in each direction were sampled for the same dates so a return fare can be set against them.</p>
+  <p><strong>Only two airlines sell a non-US through-ticket from Brisbane.</strong> A Sydney to Santiago through-fare appeared on one date only (5 November), and nothing via the Middle East, Madrid or Mexico City is sold as a single return ticket.</p>
+  <div class="table-wrap">
+  <table class="wide">
+    <thead><tr><th>Routing</th><th>Stops</th><th>Total time</th><th>Transit formalities on a Colombian passport</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Qantas and LATAM</strong>: Brisbane, Auckland, Santiago, Bogotá. Some dates route Brisbane, Melbourne, Santiago, Bogotá.</td><td class="num">2</td><td class="mono">27 h 40 via <span class="ap" data-ap="AKL" tabindex="0">AKL</span><br>29 to 30 h via <span class="ap" data-ap="MEL" tabindex="0">MEL</span></td><td>Colombia is on New Zealand's transit visa waiver list: an NZeTA bought before travel, and the traveller stays airside in Auckland. Chile is visa-free for Colombians. The Melbourne version needs nothing extra.</td></tr>
+      <tr><td><strong>Air Canada</strong>: Brisbane, Vancouver, then Toronto or Montreal, Bogotá.</td><td class="num">2</td><td class="mono">33 h 35</td><td>Canada lists Colombia as visa-required, so a Canadian visitor or transit visa is needed even to change planes. A Mexican passport gets an eTA only with a valid US visa or a Canadian visa held in the past ten years. Cheaper on almost every date, but not bookable without that visa.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout aside">
+    <p id="reading"><strong>Reading the prices.</strong> The departure date sets the price and the return date barely moves it. On the Qantas and LATAM routing, Christmas in Colombia (leaving 1 December) costs about A$750 more than a mid-January departure, and leaving in the week before Christmas roughly doubles the fare. If Christmas matters, book the 1 December departure rather than anything later that month. November is no cheaper than early December on this routing: the fares found were A$3,540 to A$5,285, against A$3,585 for 1 December. Air Canada is cheap in November, but the Canadian visa problem stands. A two-month stay does not save money: Qantas and LATAM showed no through-fare at all on most two-month pairs before February, and where both lengths were priced the fares match to within a few dollars (about A$2,700 for a March departure either way). The two-month Christmas plan has no Qantas and LATAM fare in the sample; Air Canada priced it at A$3,506 to A$3,556 for a 3 or 7 December departure. A return ticket beats two one-ways on 97 of the 102 pairs where both were priced, usually by A$700 to A$2,200. The exceptions are the pre-Christmas Qantas and LATAM departures (15 and 19 December), where the return fare is so inflated that two one-ways come in A$2,000 to A$3,500 cheaper, at about A$5,500 to A$6,100: still far above the 1 December return. One-way fares do open a third non-US routing, Qatar Airways via Doha, at about A$2,300 to A$2,600 outbound and A$3,200 back with Iberia via Madrid, but it is not sold as a return and still costs more than the Qantas and LATAM return.</p>
+  </div>
+  <div class="callout">
+    <p><strong>To confirm before booking:</strong> the checked-bag allowance on the fare shown; which passport to travel on, since the Australian visa is tied to one and the transit rules differ by passport; the NZeTA if the Auckland routing is chosen; and that the Santiago to Bogotá leg is on LATAM or Avianca, not the Wamos wet-lease Google flagged on some December dates. Fares are Google's lowest shown fare on 11 September 2026, or on 13 October 2026 for the mid-November departures with January returns, and move daily.</p>
+  </div>
+  <p class="meta">Hover or tap an airport code for its name, and a return fare for the one-way fares out and back on the same dates. A return ticket is priced as one fare, so the one-ways are a comparison, not a split.</p>
+</section>
+
+<section>
+  <div class="sect-head"><h2>Pick the dates</h2>
+    <div class="seg" role="group" aria-label="Length of stay" id="stay">
+      <button type="button" data-stay="2" aria-pressed="false">2 MONTHS</button>
+      <button type="button" data-stay="3" aria-pressed="true">3 MONTHS</button>
+      <button type="button" data-stay="0" aria-pressed="false">ANY</button>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="field"><label for="dep">Depart Brisbane</label><input type="date" id="dep" min="2026-11-01" max="2027-03-31" value="2026-12-01"></div>
+      <div class="field"><label for="ret">Return from Bogotá</label><input type="date" id="ret" min="2026-12-01" max="2027-06-30" value="2027-03-08"></div>
+    </div>
+    <div class="quick" id="quick"></div>
+    <output id="out" for="dep ret" aria-live="polite"></output>
+  </div>
+</section>
+
+<section>
+  <div class="sect-head"><h2>Every sampled departure</h2><span class="meta" id="chart-note"></span></div>
+  <p>Cheapest fare found for each departure date across the returns sampled for the chosen length of stay. Tap a bar to load that departure above; the dashed line is Christmas Day. Departures from 10 to 20 November are daily and carry the 13 October prices where the return is in January. Qatar's fares are in the tables, not the chart.</p>
+  <div class="key"><span class="k1">QANTAS + LATAM</span><span class="k4">AIR CANADA</span></div>
+  <div id="chart"></div>
+  <div class="src">SOURCE: GOOGLE FLIGHTS, 11 SEP 2026 (13 OCT 2026 FOR 10 TO 20 NOV DEPARTURES WITH JANUARY RETURNS), US AIRPORTS EXCLUDED, LOWEST SHOWN ECONOMY RETURN FARE</div>
+</section>
+
+<section>
+  <div class="sect-head"><h2>All sampled pairs</h2></div>
+  <div class="sorts">
+    <span class="lbl">Sort by</span>
+    <div class="seg" role="group" aria-label="Sort order" id="sort">
+      <button type="button" data-sort="dep" aria-pressed="true">DEPARTURE</button>
+      <button type="button" data-sort="price" aria-pressed="false">PRICE</button>
+      <button type="button" data-sort="ret" aria-pressed="false">RETURN</button>
+      <button type="button" data-sort="days" aria-pressed="false">DAYS AWAY</button>
+    </div>
+    <span class="meta" id="table-note"></span>
+  </div>
+  <div class="table-wrap">
+  <table id="all">
+    <thead><tr><th>Depart</th><th>Return</th><th class="num">Days</th><th>Routing</th><th>Via</th><th>Duration</th><th>Priced</th><th class="num">AUD return</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+  <div class="src">SOURCE: 2026-09-11_scan.csv, 2026-10-13_scan.csv AND 2026-09-11_oneway.csv IN THIS FOLDER</div>
+</section>
+
+<footer style="margin-top:48px;"><div class="double-rule"></div></footer>
+<div id="tip" role="tooltip" hidden></div>
+
+<script>
+/* Data blocks mirror the CSVs in this folder.
+   DATA: [depart, return, carrier, via, price AUD, duration, snapshot date] for return fares.
+         The snapshot date is present only on rows re-priced after the first scan (11 September 2026).
+   ONEWAY: {"out": {date: {carrier: [price, via, duration]}}, "back": {...}} for one-way fares, cheapest per carrier per date. */
+var DATA = [["2026-11-01","2026-12-31","AC","YVR and YYZ",2983,"33 hr 35 min"],["2026-11-01","2026-12-31","QF/LA","AKL and SCL",4904,"27 hr 40 min"],["2026-11-01","2027-01-30","AC","YVR and YYZ",2413,"33 hr 35 min"],["2026-11-01","2027-01-30","QF/LA","AKL and SCL",5285,"27 hr 40 min"],["2026-11-05","2027-01-04","AC","YVR and YUL",3451,"33 hr 35 min"],["2026-11-05","2027-01-04","QF/LA","MEL and SCL",4956,"29 hr 10 min"],["2026-11-05","2027-01-04","QF/LA","SYD and SCL",4736,"30 hr 10 min"],["2026-11-05","2027-02-03","AC","YVR and YUL",2373,"33 hr 35 min"],["2026-11-05","2027-02-03","QF/LA","MEL and SCL",3760,"29 hr 10 min"],["2026-11-05","2027-02-03","QF/LA","SYD and SCL",3540,"30 hr 10 min"],["2026-11-09","2027-01-08","AC","YVR and YYZ",2926,"33 hr 35 min"],["2026-11-09","2027-02-07","AC","YVR and YYZ",2121,"33 hr 35 min"],["2026-11-10","2027-01-06","AC","YVR and YUL",2924,"33 hr 35 min","2026-10-13"],["2026-11-10","2027-01-06","QF/LA","SYD and SCL",4327,"30 hr 35 min","2026-10-13"],["2026-11-10","2027-01-06","QR","DOH",4441,"33 hr 30 min","2026-10-13"],["2026-11-10","2027-01-11","AC","YVR and YUL",2880,"33 hr 35 min","2026-10-13"],["2026-11-10","2027-01-11","QF/LA","SYD and SCL",4107,"31 hr 10 min","2026-10-13"],["2026-11-10","2027-01-16","AC","YVR and YUL",3505,"33 hr 35 min","2026-10-13"],["2026-11-10","2027-01-16","QF/LA","MEL and SCL",4603,"29 hr 10 min","2026-10-13"],["2026-11-10","2027-01-21","AC","YVR and YUL",2605,"33 hr 35 min","2026-10-13"],["2026-11-10","2027-01-21","QF/LA","MEL and SCL",4885,"29 hr 10 min","2026-10-13"],["2026-11-10","2027-01-26","AC","YVR and YUL",2549,"33 hr 35 min","2026-10-13"],["2026-11-10","2027-01-26","QF/LA","MEL and SCL",4603,"29 hr 10 min","2026-10-13"],["2026-11-10","2027-01-31","AC","YVR and YUL",2119,"33 hr 35 min","2026-10-13"],["2026-11-10","2027-01-31","QF/LA","MEL and SCL",4118,"29 hr 10 min","2026-10-13"],["2026-11-10","2027-01-31","QR","DOH",3582,"33 hr 30 min","2026-10-13"],["2026-11-11","2027-01-06","AC","YVR and YYZ",2930,"33 hr 35 min","2026-10-13"],["2026-11-11","2027-01-06","QF/LA","SYD and SCL",4303,"30 hr 20 min","2026-10-13"],["2026-11-11","2027-01-11","AC","YVR and YYZ",2887,"33 hr 35 min","2026-10-13"],["2026-11-11","2027-01-11","QF/LA","SYD and SCL",4071,"30 hr 20 min","2026-10-13"],["2026-11-11","2027-01-16","AC","YVR and YYZ",3512,"33 hr 35 min","2026-10-13"],["2026-11-11","2027-01-16","QF/LA","SYD and SCL",4327,"30 hr 35 min","2026-10-13"],["2026-11-11","2027-01-21","AC","YVR and YYZ",2612,"33 hr 35 min","2026-10-13"],["2026-11-11","2027-01-21","QF/LA","MEL and SCL",4548,"31 hr 10 min","2026-10-13"],["2026-11-11","2027-01-26","AC","YVR and YYZ",2555,"33 hr 35 min","2026-10-13"],["2026-11-11","2027-01-26","QF/LA","SYD and SCL",4327,"31 hr 10 min","2026-10-13"],["2026-11-11","2027-01-31","AC","YVR and YYZ",2125,"33 hr 35 min","2026-10-13"],["2026-11-11","2027-01-31","QF/LA","MEL and SCL",3779,"31 hr 10 min","2026-10-13"],["2026-11-12","2027-01-06","AC","YVR and YUL",2924,"33 hr 35 min","2026-10-13"],["2026-11-12","2027-01-06","QF/LA","MEL and SCL",4603,"29 hr 10 min","2026-10-13"],["2026-11-12","2027-01-11","AC","YVR and YUL",2880,"33 hr 35 min","2026-10-13"],["2026-11-12","2027-01-11","QF/LA","MEL and SCL",4371,"29 hr 10 min","2026-10-13"],["2026-11-12","2027-01-16","AC","YVR and YUL",3505,"33 hr 35 min","2026-10-13"],["2026-11-12","2027-01-16","QF/LA","SYD and SCL",4580,"30 hr 10 min","2026-10-13"],["2026-11-12","2027-01-21","AC","YVR and YUL",2605,"33 hr 35 min","2026-10-13"],["2026-11-12","2027-01-21","QF/LA","SYD and SCL",4580,"30 hr 10 min","2026-10-13"],["2026-11-12","2027-01-26","AC","YVR and YUL",2549,"33 hr 35 min","2026-10-13"],["2026-11-12","2027-01-26","QF/LA","SYD and SCL",4576,"30 hr 10 min","2026-10-13"],["2026-11-12","2027-01-31","AC","YVR and YUL",2119,"33 hr 35 min","2026-10-13"],["2026-11-12","2027-01-31","QF/LA","SYD and SCL",3811,"30 hr 10 min","2026-10-13"],["2026-11-13","2027-01-06","AC","YVR and YYZ",3080,"33 hr 35 min","2026-10-13"],["2026-11-13","2027-01-06","QF/LA","MEL and SCL",4603,"31 hr 10 min","2026-10-13"],["2026-11-13","2027-01-11","AC","YVR and YYZ",3037,"33 hr 35 min","2026-10-13"],["2026-11-13","2027-01-11","QF/LA","MEL and SCL",4371,"31 hr 10 min","2026-10-13"],["2026-11-13","2027-01-16","AC","YVR and YYZ",3662,"33 hr 35 min","2026-10-13"],["2026-11-13","2027-01-16","QF/LA","MEL and SCL",4603,"31 hr 10 min","2026-10-13"],["2026-11-13","2027-01-21","AC","YVR and YYZ",2762,"33 hr 35 min","2026-10-13"],["2026-11-13","2027-01-21","QF/LA","SYD and SCL",4580,"31 hr 10 min","2026-10-13"],["2026-11-13","2027-01-26","AC","YVR and YYZ",2705,"33 hr 35 min","2026-10-13"],["2026-11-13","2027-01-26","QF/LA","MEL and SCL",4603,"31 hr 10 min","2026-10-13"],["2026-11-13","2027-01-31","AC","YVR and YYZ",2275,"33 hr 35 min","2026-10-13"],["2026-11-13","2027-01-31","QF/LA","SYD and SCL",3811,"31 hr 10 min","2026-10-13"],["2026-11-13","2027-02-11","AC","YVR and YYZ",2603,"33 hr 35 min"],["2026-11-13","2027-02-11","QF/LA","AKL and SCL",4325,"27 hr 40 min"],["2026-11-14","2027-01-06","AC","YVR and YUL",3074,"33 hr 35 min","2026-10-13"],["2026-11-14","2027-01-06","QF/LA","MEL and SCL",4603,"29 hr 10 min","2026-10-13"],["2026-11-14","2027-01-06","QR","DOH",4483,"33 hr 30 min","2026-10-13"],["2026-11-14","2027-01-11","AC","YVR and YUL",3030,"33 hr 35 min","2026-10-13"],["2026-11-14","2027-01-11","QF/LA","MEL and SCL",4371,"29 hr 10 min","2026-10-13"],["2026-11-14","2027-01-16","AC","YVR and YUL",3655,"33 hr 35 min","2026-10-13"],["2026-11-14","2027-01-16","QF/LA","SYD and SCL",4580,"30 hr 35 min","2026-10-13"],["2026-11-14","2027-01-21","AC","YVR and YUL",2755,"33 hr 35 min","2026-10-13"],["2026-11-14","2027-01-21","QF/LA","SYD and SCL",4580,"30 hr 35 min","2026-10-13"],["2026-11-14","2027-01-26","AC","YVR and YUL",2699,"33 hr 35 min","2026-10-13"],["2026-11-14","2027-01-26","QF/LA","SYD and SCL",4576,"30 hr 35 min","2026-10-13"],["2026-11-14","2027-01-31","AC","YVR and YUL",2269,"33 hr 35 min","2026-10-13"],["2026-11-14","2027-01-31","QF/LA","SYD and SCL",3811,"30 hr 35 min","2026-10-13"],["2026-11-14","2027-01-31","QR","DOH",3623,"33 hr 30 min","2026-10-13"],["2026-11-15","2027-01-06","AC","YVR and YYZ",3080,"33 hr 35 min","2026-10-13"],["2026-11-15","2027-01-06","QF/LA","MEL and SCL",4603,"29 hr 10 min","2026-10-13"],["2026-11-15","2027-01-11","AC","YVR and YYZ",3037,"33 hr 35 min","2026-10-13"],["2026-11-15","2027-01-11","QF/LA","MEL and SCL",4371,"29 hr 10 min","2026-10-13"],["2026-11-15","2027-01-16","AC","YVR and YYZ",3662,"33 hr 35 min","2026-10-13"],["2026-11-15","2027-01-16","QF/LA","MEL and SCL",4603,"31 hr 10 min","2026-10-13"],["2026-11-15","2027-01-21","AC","YVR and YYZ",2762,"33 hr 35 min","2026-10-13"],["2026-11-15","2027-01-21","QF/LA","SYD and SCL",4782,"31 hr 10 min","2026-10-13"],["2026-11-15","2027-01-26","AC","YVR and YYZ",2705,"33 hr 35 min","2026-10-13"],["2026-11-15","2027-01-26","QF/LA","MEL and SCL",4603,"29 hr 10 min","2026-10-13"],["2026-11-15","2027-01-31","AC","YVR and YYZ",2275,"33 hr 35 min","2026-10-13"],["2026-11-15","2027-01-31","QF/LA","SYD and SCL",4007,"31 hr 10 min","2026-10-13"],["2026-11-16","2027-01-06","AC","YVR and YYZ",3360,"33 hr 35 min","2026-10-13"],["2026-11-16","2027-01-06","QF/LA","SYD and SCL",4477,"30 hr 10 min","2026-10-13"],["2026-11-16","2027-01-11","AC","YVR and YYZ",3317,"33 hr 35 min","2026-10-13"],["2026-11-16","2027-01-11","QF/LA","SYD and SCL",4245,"31 hr 10 min","2026-10-13"],["2026-11-16","2027-01-16","AC","YVR and YYZ",3942,"33 hr 35 min","2026-10-13"],["2026-11-16","2027-01-16","QF/LA","SYD and SCL",4530,"30 hr 10 min","2026-10-13"],["2026-11-16","2027-01-21","AC","YVR and YYZ",3042,"33 hr 35 min","2026-10-13"],["2026-11-16","2027-01-21","QF/LA","SYD and SCL",4580,"30 hr 35 min","2026-10-13"],["2026-11-16","2027-01-26","AC","YVR and YYZ",2985,"33 hr 35 min","2026-10-13"],["2026-11-16","2027-01-26","QF/LA","SYD and SCL",4477,"31 hr 10 min","2026-10-13"],["2026-11-16","2027-01-31","AC","YVR and YYZ",2555,"33 hr 35 min","2026-10-13"],["2026-11-16","2027-01-31","QF/LA","SYD and SCL",3811,"30 hr 35 min","2026-10-13"],["2026-11-17","2027-01-06","AC","YVR and YUL",2924,"33 hr 35 min","2026-10-13"],["2026-11-17","2027-01-06","QF/LA","SYD and SCL",4477,"30 hr 10 min","2026-10-13"],["2026-11-17","2027-01-06","QR","DOH",4441,"33 hr 30 min","2026-10-13"],["2026-11-17","2027-01-11","AC","YVR and YUL",2880,"33 hr 35 min","2026-10-13"],["2026-11-17","2027-01-11","QF/LA","SYD and SCL",4245,"30 hr 35 min","2026-10-13"],["2026-11-17","2027-01-16","AC","YVR and YUL",3505,"33 hr 35 min","2026-10-13"],["2026-11-17","2027-01-16","QF/LA","SYD and SCL",4233,"30 hr 20 min","2026-10-13"],["2026-11-17","2027-01-21","AC","YVR and YUL",2605,"33 hr 35 min","2026-10-13"],["2026-11-17","2027-01-21","QF/LA","SYD and SCL",4736,"30 hr 35 min","2026-10-13"],["2026-11-17","2027-01-26","AC","YVR and YUL",2549,"33 hr 35 min","2026-10-13"],["2026-11-17","2027-01-26","QF/LA","SYD and SCL",4477,"30 hr 35 min","2026-10-13"],["2026-11-17","2027-01-31","AC","YVR and YUL",2119,"33 hr 35 min","2026-10-13"],["2026-11-17","2027-01-31","QF/LA","SYD and SCL",3970,"30 hr 35 min","2026-10-13"],["2026-11-17","2027-01-31","QR","DOH",3582,"33 hr 30 min","2026-10-13"],["2026-11-17","2027-02-15","AC","YVR and YUL",2121,"33 hr 35 min"],["2026-11-17","2027-02-15","QF/LA","AKL and SCL",3852,"27 hr 40 min"],["2026-11-18","2027-01-06","AC","YVR and YYZ",2930,"33 hr 35 min","2026-10-13"],["2026-11-18","2027-01-06","QF/LA","SYD and SCL",4453,"30 hr 20 min","2026-10-13"],["2026-11-18","2027-01-11","AC","YVR and YYZ",2887,"33 hr 35 min","2026-10-13"],["2026-11-18","2027-01-11","QF/LA","SYD and SCL",4221,"30 hr 20 min","2026-10-13"],["2026-11-18","2027-01-16","AC","YVR and YYZ",3512,"33 hr 35 min","2026-10-13"],["2026-11-18","2027-01-16","QF/LA","SYD and SCL",4453,"30 hr 20 min","2026-10-13"],["2026-11-18","2027-01-21","AC","YVR and YYZ",2612,"33 hr 35 min","2026-10-13"],["2026-11-18","2027-01-21","QF/LA","SYD and SCL",4580,"30 hr 10 min","2026-10-13"],["2026-11-18","2027-01-26","AC","YVR and YYZ",2555,"33 hr 35 min","2026-10-13"],["2026-11-18","2027-01-26","QF/LA","SYD and SCL",4453,"30 hr 20 min","2026-10-13"],["2026-11-18","2027-01-31","AC","YVR and YYZ",2125,"33 hr 35 min","2026-10-13"],["2026-11-18","2027-01-31","QF/LA","SYD and SCL",3811,"30 hr 10 min","2026-10-13"],["2026-11-19","2027-01-06","AC","YVR and YUL",3354,"33 hr 35 min","2026-10-13"],["2026-11-19","2027-01-06","QF/LA","MEL and SCL",4603,"29 hr 10 min","2026-10-13"],["2026-11-19","2027-01-11","AC","YVR and YUL",3310,"33 hr 35 min","2026-10-13"],["2026-11-19","2027-01-11","QF/LA","MEL and SCL",4371,"29 hr 10 min","2026-10-13"],["2026-11-19","2027-01-16","AC","YVR and YUL",3935,"33 hr 35 min","2026-10-13"],["2026-11-19","2027-01-16","QF/LA","SYD and SCL",4580,"30 hr 10 min","2026-10-13"],["2026-11-19","2027-01-21","AC","YVR and YUL",3035,"33 hr 35 min","2026-10-13"],["2026-11-19","2027-01-21","QF/LA","SYD and SCL",4580,"30 hr 10 min","2026-10-13"],["2026-11-19","2027-01-26","AC","YVR and YUL",2979,"33 hr 35 min","2026-10-13"],["2026-11-19","2027-01-26","QF/LA","SYD and SCL",4576,"30 hr 10 min","2026-10-13"],["2026-11-19","2027-01-31","AC","YVR and YUL",2549,"33 hr 35 min","2026-10-13"],["2026-11-19","2027-01-31","QF/LA","SYD and SCL",3811,"30 hr 10 min","2026-10-13"],["2026-11-20","2027-01-06","AC","YVR and YYZ",3410,"33 hr 35 min","2026-10-13"],["2026-11-20","2027-01-06","QF/LA","MEL and SCL",4781,"31 hr 10 min","2026-10-13"],["2026-11-20","2027-01-11","AC","YVR and YYZ",3367,"33 hr 35 min","2026-10-13"],["2026-11-20","2027-01-11","QF/LA","MEL and SCL",4549,"31 hr 10 min","2026-10-13"],["2026-11-20","2027-01-16","AC","YVR and YYZ",3992,"33 hr 35 min","2026-10-13"],["2026-11-20","2027-01-16","QF/LA","MEL and SCL",4781,"31 hr 10 min","2026-10-13"],["2026-11-20","2027-01-21","AC","YVR and YYZ",3092,"33 hr 35 min","2026-10-13"],["2026-11-20","2027-01-21","QF/LA","SYD and SCL",4854,"30 hr 10 min","2026-10-13"],["2026-11-20","2027-01-26","AC","YVR and YYZ",3035,"33 hr 35 min","2026-10-13"],["2026-11-20","2027-01-26","QF/LA","MEL and SCL",4781,"31 hr 10 min","2026-10-13"],["2026-11-20","2027-01-31","AC","YVR and YYZ",2605,"33 hr 35 min","2026-10-13"],["2026-11-20","2027-01-31","QF/LA","SYD and SCL",4087,"30 hr 10 min","2026-10-13"],["2026-11-20","2027-03-01","AC","YVR and YYZ",2528,"33 hr 35 min"],["2026-11-21","2027-01-20","AC","YVR and YUL",3249,"33 hr 35 min"],["2026-11-21","2027-02-19","AC","YVR and YUL",2598,"33 hr 35 min"],["2026-11-25","2027-01-24","AC","YVR and YYZ",2565,"33 hr 35 min"],["2026-11-25","2027-02-23","AC","YVR and YYZ",2378,"33 hr 35 min"],["2026-11-25","2027-03-08","AC","YVR and YYZ",2378,"33 hr 35 min"],["2026-11-29","2027-01-28","AC","YVR and YYZ",3707,"33 hr 35 min"],["2026-11-29","2027-02-27","AC","YVR and YYZ",3632,"33 hr 35 min"],["2026-12-01","2027-03-01","AC","YVR and YUL",3606,"33 hr 35 min"],["2026-12-01","2027-03-01","QF/LA","AKL and SCL",3877,"27 hr 40 min"],["2026-12-01","2027-03-08","AC","YVR and YUL",3459,"33 hr 35 min"],["2026-12-01","2027-03-08","QF/LA","AKL and SCL",3585,"27 hr 40 min"],["2026-12-03","2027-02-01","AC","YVR and YUL",3506,"33 hr 35 min"],["2026-12-03","2027-03-03","AC","YVR and YUL",3499,"33 hr 35 min"],["2026-12-05","2027-03-01","AC","YVR and YUL",3095,"33 hr 35 min"],["2026-12-05","2027-03-01","QF/LA","AKL and SCL",4235,"27 hr 40 min"],["2026-12-05","2027-03-08","AC","YVR and YUL",2905,"33 hr 35 min"],["2026-12-05","2027-03-08","QF/LA","AKL and SCL",4065,"27 hr 40 min"],["2026-12-07","2027-02-05","AC","YVR and YYZ",3556,"33 hr 35 min"],["2026-12-07","2027-03-07","AC","YVR and YYZ",3506,"33 hr 35 min"],["2026-12-09","2027-03-01","AC","YVR and YYZ",3813,"33 hr 35 min"],["2026-12-11","2027-02-09","AC","YVR and YYZ",4098,"33 hr 35 min"],["2026-12-13","2027-03-13","AC","YVR and YYZ",4373,"33 hr 35 min"],["2026-12-15","2027-02-13","AC","YVR and YUL",4316,"33 hr 35 min"],["2026-12-15","2027-02-13","QF/LA","AKL and SCL",7836,"27 hr 40 min"],["2026-12-15","2027-03-15","AC","YVR and YUL",4266,"33 hr 35 min"],["2026-12-15","2027-03-15","QF/LA","AKL and SCL",7584,"27 hr 40 min"],["2026-12-17","2027-03-17","AC","YVR and YUL",5084,"33 hr 35 min"],["2026-12-18","2027-03-18","AC","YVR and YYZ",5498,"33 hr 35 min"],["2026-12-19","2027-02-17","AC","YVR and YUL",5884,"33 hr 35 min"],["2026-12-19","2027-02-17","QF/LA","AKL and SCL",9676,"27 hr 40 min"],["2026-12-19","2027-03-19","AC","YVR and YUL",5934,"33 hr 35 min"],["2026-12-19","2027-03-19","QF/LA","AKL and SCL",9578,"27 hr 40 min"],["2026-12-20","2027-03-20","AC","YVR and YYZ",5498,"33 hr 35 min"],["2026-12-21","2027-03-21","AC","YVR and YYZ",5391,"33 hr 35 min"],["2026-12-23","2027-02-21","AC","YVR and YYZ",4591,"33 hr 35 min"],["2026-12-25","2027-03-25","AC","YVR and YYZ",3367,"33 hr 35 min"],["2026-12-27","2027-02-25","AC","YVR and YYZ",4373,"33 hr 35 min"],["2026-12-29","2027-03-29","AC","YVR and YUL",3275,"33 hr 35 min"],["2026-12-29","2027-03-29","QF/LA","AKL and SCL",4935,"27 hr 40 min"],["2026-12-31","2027-03-01","AC","YVR and YUL",3350,"33 hr 35 min"],["2027-01-02","2027-04-02","AC","YVR and YUL",5081,"33 hr 35 min"],["2027-01-02","2027-04-02","QF/LA","AKL and SCL",4967,"27 hr 40 min"],["2027-01-04","2027-03-05","AC","YVR and YYZ",4689,"33 hr 35 min"],["2027-01-06","2027-04-06","AC","YVR and YYZ",4539,"33 hr 35 min"],["2027-01-08","2027-03-09","AC","YVR and YYZ",4703,"33 hr 35 min"],["2027-01-10","2027-04-10","AC","YVR and YYZ",4215,"33 hr 35 min"],["2027-01-12","2027-03-13","AC","YVR and YUL",2271,"33 hr 35 min"],["2027-01-12","2027-03-13","QF/LA","AKL and SCL",5050,"27 hr 40 min"],["2027-01-14","2027-04-10","AC","YVR and YUL",2264,"33 hr 35 min"],["2027-01-14","2027-04-10","QF/LA","MEL and SCL",3077,"29 hr 10 min"],["2027-01-14","2027-04-14","AC","YVR and YUL",2121,"33 hr 35 min"],["2027-01-14","2027-04-14","QF/LA","MEL and SCL",2839,"29 hr 10 min"],["2027-01-14","2027-04-18","AC","YVR and YUL",2271,"33 hr 35 min"],["2027-01-14","2027-04-18","QF/LA","MEL and SCL",2839,"29 hr 10 min"],["2027-01-16","2027-03-17","AC","YVR and YUL",2594,"33 hr 35 min"],["2027-01-18","2027-04-18","AC","YVR and YYZ",2137,"33 hr 35 min"],["2027-01-20","2027-03-21","AC","YVR and YYZ",2121,"33 hr 35 min"],["2027-01-22","2027-04-22","AC","YVR and YYZ",2130,"33 hr 35 min"],["2027-01-26","2027-04-26","AC","YVR and YUL",2055,"33 hr 35 min"],["2027-01-26","2027-04-26","QF/LA","AKL and SCL",3950,"27 hr 40 min"],["2027-01-26","2027-04-26","QF/LA","MEL and SCL",3213,"29 hr 10 min"],["2027-01-28","2027-03-29","AC","YVR and YUL",2055,"33 hr 35 min"],["2027-01-30","2027-04-30","AC","YVR and YUL",2347,"33 hr 35 min"],["2027-02-01","2027-04-02","AC","YVR and YYZ",1994,"33 hr 35 min"],["2027-02-03","2027-04-30","AC","YVR and YYZ",1994,"33 hr 35 min"],["2027-02-03","2027-05-04","AC","YVR and YYZ",1912,"33 hr 35 min"],["2027-02-03","2027-05-08","AC","YVR and YYZ",2201,"33 hr 35 min"],["2027-02-05","2027-04-06","AC","YVR and YYZ",1987,"33 hr 35 min"],["2027-02-07","2027-05-08","AC","YVR and YYZ",2276,"33 hr 35 min"],["2027-02-09","2027-04-10","AC","YVR and YUL",1980,"33 hr 35 min"],["2027-02-09","2027-04-10","QF/LA","AKL and SCL",4220,"27 hr 40 min"],["2027-02-11","2027-05-12","AC","YVR and YUL",1912,"33 hr 35 min"],["2027-02-13","2027-04-14","AC","YVR and YUL",2201,"33 hr 35 min"],["2027-02-13","2027-04-14","QF/LA","AKL and SCL",3982,"27 hr 40 min"],["2027-02-15","2027-05-16","AC","YVR and YYZ",1994,"33 hr 35 min"],["2027-02-17","2027-04-18","AC","YVR and YYZ",1994,"33 hr 35 min"],["2027-02-19","2027-05-20","AC","YVR and YYZ",1987,"33 hr 35 min"],["2027-02-21","2027-04-22","AC","YVR and YYZ",2196,"33 hr 35 min"],["2027-02-23","2027-05-24","AC","YVR and YUL",1912,"33 hr 35 min"],["2027-02-23","2027-05-24","QF/LA","AKL and SCL",3950,"27 hr 40 min"],["2027-02-25","2027-04-26","AC","YVR and YUL",1912,"33 hr 35 min"],["2027-02-27","2027-05-28","AC","YVR and YUL",2391,"33 hr 35 min"],["2027-02-27","2027-05-28","QF/LA","AKL and SCL",3950,"27 hr 40 min"],["2027-03-01","2027-04-30","AC","YVR and YYZ",2203,"33 hr 35 min"],["2027-03-03","2027-05-28","AC","YVR and YYZ",1994,"33 hr 35 min"],["2027-03-03","2027-06-01","AC","YVR and YYZ",1912,"33 hr 35 min"],["2027-03-03","2027-06-05","AC","YVR and YYZ",1987,"33 hr 35 min"],["2027-03-05","2027-05-04","AC","YVR and YYZ",1987,"33 hr 35 min"],["2027-03-07","2027-06-05","AC","YVR and YYZ",2271,"33 hr 35 min"],["2027-03-07","2027-06-05","QF/LA","AKL and SCL",2708,"27 hr 40 min"],["2027-03-09","2027-05-08","AC","YVR and YUL",2194,"33 hr 35 min"],["2027-03-09","2027-05-08","QF/LA","AKL and SCL",2708,"27 hr 40 min"],["2027-03-11","2027-06-09","AC","YVR and YUL",2876,"33 hr 35 min"],["2027-03-13","2027-05-12","AC","YVR and YUL",2316,"33 hr 35 min"],["2027-03-17","2027-05-16","AC","YVR and YYZ",2203,"33 hr 35 min"],["2027-03-19","2027-06-17","AC","YVR and YYZ",2196,"33 hr 35 min"],["2027-03-21","2027-05-20","AC","YVR and YYZ",2311,"33 hr 35 min"],["2027-03-21","2027-05-20","QF/LA","AKL and SCL",2708,"27 hr 40 min"],["2027-03-23","2027-06-21","AC","YVR and YUL",2121,"33 hr 35 min"],["2027-03-23","2027-06-21","QF/LA","AKL and SCL",3313,"27 hr 40 min"],["2027-03-25","2027-05-24","AC","YVR and YUL",2241,"33 hr 35 min"],["2027-03-27","2027-06-25","AC","YVR and YUL",2459,"33 hr 20 min"],["2027-03-29","2027-05-28","AC","YVR and YYZ",2318,"33 hr 5 min"],["2027-03-29","2027-05-28","QF/LA","MEL and SCL",2683,"30 hr 10 min"],["2027-03-31","2027-06-29","AC","YVR and YYZ",2121,"33 hr 5 min"],["2027-03-31","2027-06-29","QF/LA","MEL and SCL",2683,"30 hr 10 min"]];
+var ONEWAY = {"out":{"2026-11-01":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2024,"SYD and SCL and LIM","39 hr 5 min","Qantas, LATAM, AviancaOperated by Qantas"],"other":[3482,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-11-05":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2167,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[3332,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-11-09":{"AC":[1425,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2024,"SYD and SCL and LIM","38 hr 30 min","Qantas, LATAM, Avianca"],"other":[3332,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-11-13":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2058,"SYD and SCL","30 hr 20 min","Qantas, Avianca"],"other":[3332,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-11-17":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1916,"SYD and SCL","30 hr 10 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[2316,"DOH","33 hr 45 min","Qatar Airways"]},"2026-11-20":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2250,"MEL and SCL","29 hr 10 min","Qantas, LATAMOperated by Qantas for Lata"],"other":[2332,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar AirwaysOperated "]},"2026-11-21":{"AC":[2066,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[2321,"DOH","33 hr 45 min","Qatar Airways"],"QF/LA":[2193,"SYD and SCL","41 hr 15 min","Qantas, LATAMOperated by Wamos for Latam"]},"2026-11-25":{"QF/LA":[2177,"SYD and SCL and LIM","30 hr 40 min","Qantas, LATAM, Avianca"],"AC":[2545,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[3332,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-11-29":{"QF/LA":[2349,"MEL and SCL","31 hr 10 min","Qantas, LATAMOperated by Latam Airlines "],"AC":[2693,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[4097,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-12-01":{"QF/LA":[2509,"SYD and SCL and LIM","36 hr 35 min","Qantas, LATAMOperated by Latam Airlines "],"other":[2588,"DOH","33 hr 45 min","Qatar Airways"],"AC":[2766,"YVR and YUL","33 hr 35 min","Air Canada"]},"2026-12-03":{"QF/LA":[2477,"MEL and SCL","31 hr 10 min","Qantas, LATAMOperated by Qantaslink - Na"],"AC":[2636,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[14827,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2026-12-05":{"QF/LA":[2477,"MEL and SCL","29 hr 10 min","Qantas, LATAMOperated by Latam Airlines "],"other":[2963,"DOH","33 hr 45 min","Qatar Airways"],"AC":[2588,"YVR and YUL","33 hr 35 min","Air Canada"]},"2026-12-07":{"QF/LA":[2477,"MEL and SCL","30 hr 10 min","Qantas, LATAMOperated by Qantaslink - Na"],"AC":[2636,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[2931,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar AirwaysOperated "]},"2026-12-09":{"QF/LA":[2476,"SYD and SCL","40 hr 25 min","Qantas, Avianca"],"AC":[2773,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[4397,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-12-11":{"QF/LA":[2953,"SYD and SCL","30 hr 10 min","Qantas, LATAMOperated by Qantas for Lata"],"AC":[3310,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[3474,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2026-12-13":{"QF/LA":[3200,"MEL and SCL","29 hr 10 min","Qantas, LATAMOperated by Latam Airlines "],"AC":[3603,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[15559,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2026-12-15":{"QF/LA":[3018,"MEL and SCL","29 hr 10 min","Qantas, LATAMOperated by Latam Airlines "],"other":[3396,"DOH","33 hr 45 min","Qatar Airways"],"AC":[3546,"YVR and YUL","33 hr 35 min","Air Canada"]},"2026-12-17":{"QF/LA":[3200,"MEL and SCL","29 hr 10 min","Qantas, LATAMOperated by Latam Airlines "],"AC":[4618,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[6216,"TPE and YYZ","46 hr 15 min","EVA Air, Avianca"]},"2026-12-18":{"QF/LA":[3268,"AKL and SCL","35 hr 5 min","Qantas, LATAMOperated by Latam Airlines "],"other":[3489,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"],"AC":[5065,"YVR and YYZ","33 hr 35 min","Air Canada"]},"2026-12-19":{"other":[3439,"DOH","33 hr 45 min","Qatar Airways"],"QF/LA":[3400,"SYD and SCL","31 hr 10 min","Qantas, LATAMOperated by Wamos for Latam"],"AC":[5613,"YVR and YUL","33 hr 35 min","Air Canada"]},"2026-12-20":{"QF/LA":[3242,"MEL and SCL","29 hr 10 min","Qantas, LATAMOperated by Latam Airlines "],"AC":[5065,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[15559,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2026-12-21":{"QF/LA":[3200,"MEL and SCL","29 hr 10 min","Qantas, LATAMOperated by Latam Airlines "],"other":[3446,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"],"AC":[4358,"YVR and YUL","33 hr 35 min","Air Canada"]},"2026-12-23":{"QF/LA":[2604,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"AC":[3780,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[5662,"DXB and YYZ","66 hr 55 min","Emirates, Avianca"]},"2026-12-25":{"QF/LA":[2518,"MEL and SCL","31 hr 10 min","Qantas, LATAMOperated by Qantaslink - Na"],"AC":[2829,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[2998,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2026-12-27":{"QF/LA":[2483,"MEL and SCL","31 hr 10 min","Qantas, LATAMOperated by Qantaslink - Na"],"AC":[3603,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[4798,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2026-12-29":{"QF/LA":[2342,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[2920,"DOH","33 hr 45 min","Qatar Airways"],"AC":[2928,"YVR and YUL","33 hr 35 min","Air Canada"]},"2026-12-31":{"QF/LA":[2193,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"AC":[2772,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[3633,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2027-01-02":{"QF/LA":[2373,"SYD and SCL and LIM","44 hr","Qantas, LATAMOperated by Latam Airlines "],"other":[2963,"DOH","33 hr 45 min","Qatar Airways"],"AC":[4083,"YVR and YUL","33 hr 35 min","Air Canada"]},"2027-01-04":{"QF/LA":[2210,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[2970,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"],"AC":[3676,"YVR and YUL","33 hr 35 min","Air Canada"]},"2027-01-06":{"QF/LA":[2193,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[3332,"DXB and LHR","40 hr 40 min","Emirates, Avianca"],"AC":[3683,"YVR and YYZ","33 hr 35 min","Air Canada"]},"2027-01-08":{"QF/LA":[2193,"SYD and SCL","31 hr 10 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[2681,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"],"AC":[4090,"YVR and YYZ","33 hr 35 min","Air Canada"]},"2027-01-10":{"QF/LA":[2177,"SYD and SCL and LIM","39 hr 5 min","Qantas, LATAM, AviancaOperated by Qantas"],"other":[3332,"DXB and LHR","40 hr 40 min","Emirates, Avianca"],"AC":[3733,"YVR and YYZ","33 hr 35 min","Air Canada"]},"2027-01-12":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2191,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[2588,"DOH","33 hr 45 min","Qatar Airways"]},"2027-01-14":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2175,"SYD and SCL and LIM","39 hr 5 min","Qantas, LATAM, Avianca"],"other":[14827,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-01-16":{"AC":[2066,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2336,"SYD and SCL and LIM","31 hr 10 min","Qantas, LATAM, Avianca"],"other":[2536,"DOH","33 hr 45 min","Qatar Airways"]},"2027-01-18":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2191,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-01-20":{"AC":[1425,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2024,"SYD and SCL and LIM","39 hr 5 min","Qantas, LATAM, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-01-22":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2175,"SYD and SCL and LIM","39 hr 5 min","Qantas, LATAM, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-01-24":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2175,"SYD and SCL and LIM","31 hr 15 min","Qantas, LATAM, AviancaOperated by Qantas"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-01-26":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2175,"SYD and SCL and LIM","31 hr 10 min","Qantas, LATAM, Avianca"],"other":[2410,"DOH","33 hr 45 min","Qatar Airways"]},"2027-01-28":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2167,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-01-30":{"AC":[1518,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2042,"SYD and SCL","41 hr 15 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[2453,"DOH","33 hr 45 min","Qatar Airways"]},"2027-02-01":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[2019,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[2460,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2027-02-03":{"AC":[1425,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2019,"SYD and SCL","41 hr 15 min","Qantas, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-02-05":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1901,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[2503,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2027-02-07":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1788,"SYD and SCL and LIM","39 hr 5 min","Qantas, LATAM, AviancaOperated by Qantas"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-02-09":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1788,"SYD and SCL and LIM","30 hr 10 min","Qantas, LATAM, AviancaOperated by Latam "],"other":[2588,"DOH","33 hr 45 min","Qatar Airways"]},"2027-02-11":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1924,"SYD and SCL","40 hr 20 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-02-13":{"AC":[1518,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1788,"SYD and SCL and LIM","31 hr 10 min","Qantas, LATAM, Avianca"],"other":[2502,"SYD and DOH","37 hr 35 min","Virgin Australia, Qatar AirwaysOperated "]},"2027-02-15":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1951,"SYD and SCL and LIM","43 hr 5 min","Qantas, LATAMOperated by Latam Airlines "],"other":[2445,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2027-02-17":{"AC":[1425,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1803,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-02-19":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1905,"SYD and SCL and LIM","31 hr 15 min","Qantas, LATAM, Avianca"],"other":[2488,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2027-02-21":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[2024,"SYD and SCL and LIM","39 hr 5 min","Qantas, LATAM, AviancaOperated by Qantas"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-02-23":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1803,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[2410,"DOH","33 hr 45 min","Qatar Airways"]},"2027-02-25":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1765,"SYD and SCL","30 hr 35 min","Qantas, LATAMOperated by Wamos for Latam"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-02-27":{"QF/LA":[1905,"SYD and SCL and LIM","31 hr 10 min","Qantas, LATAM, Avianca"],"AC":[2066,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[2453,"DOH","33 hr 45 min","Qatar Airways"]},"2027-03-01":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1901,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-03-03":{"AC":[1425,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1803,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-03-05":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1905,"SYD and SCL and LIM","30 hr 40 min","Qantas, LATAM, Avianca"],"other":[2503,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2027-03-07":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1788,"SYD and SCL and LIM","31 hr 15 min","Qantas, LATAM, AviancaOperated by Qantas"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-03-09":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1803,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[2410,"DOH","33 hr 45 min","Qatar Airways"]},"2027-03-11":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1765,"SYD and SCL","30 hr 35 min","Qantas, LATAMOperated by Latam Airlines "],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-03-13":{"QF/LA":[1919,"SYD and SCL","45 hr","Qantas, Avianca"],"AC":[2066,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[2453,"DOH","33 hr 45 min","Qatar Airways"]},"2027-03-17":{"AC":[1425,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1803,"SYD and SCL","39 hr 30 min","Qantas, Avianca"],"other":[3250,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-03-19":{"AC":[1525,"YVR and YYZ","33 hr 35 min","Air Canada"],"QF/LA":[1809,"SYD and SCL and LIM","37 hr 35 min","Qantas, LATAMOperated by Latam Airlines "],"other":[2488,"MEL and DOH","58 hr 45 min","Virgin Australia, Qatar Airways"]},"2027-03-21":{"QF/LA":[1836,"SYD and SCL and LIM","43 hr 5 min","Qantas, LATAMOperated by Latam Airlines "],"AC":[2073,"YVR and YYZ","33 hr 35 min","Air Canada"],"other":[3332,"DXB and LHR","40 hr 40 min","Emirates, Avianca"]},"2027-03-23":{"AC":[1418,"YVR and YUL","33 hr 35 min","Air Canada"],"QF/LA":[1809,"SYD and SCL and LIM","33 hr 20 min","Qantas, LATAMOperated by Latam Airlines "],"other":[2410,"DOH","33 hr 45 min","Qatar Airways"]},"2027-03-25":{"QF/LA":[1901,"SYD and SCL","30 hr 20 min","Qantas, Avianca"],"AC":[2001,"YVR and YUL","33 hr 35 min","Air Canada"],"other":[14827,"DXB and MAD","38 hr 50 min","Emirates, Avianca"]},"2027-03-27":{"AC":[1518,"YVR and YUL","33 hr 20 min","Air Canada"],"QF/LA":[1836,"SYD and SCL and LIM","45 hr 35 min","Qantas, LATAMOperated by Latam Airlines "],"other":[2453,"DOH","33 hr 10 min","Qatar Airways"]},"2027-03-29":{"AC":[2008,"YVR and YYZ","33 hr 5 min","Air Canada"],"QF/LA":[2038,"SYD and SCL","39 hr 45 min","Qantas, Avianca"],"other":[3250,"DXB and MAD","38 hr 30 min","Emirates, Avianca"]},"2027-03-31":{"AC":[1425,"YVR and YYZ","33 hr 5 min","Air Canada"],"QF/LA":[1815,"SYD and SCL and LIM","40 hr","Qantas, LATAM, Avianca"],"other":[3250,"DXB and MAD","38 hr 30 min","Emirates, Avianca"]}},"back":{"2026-12-31":{"QF/LA":[2750,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"other":[4197,"LHR and DXB","40 hr 5 min","Avianca, Emirates"],"AC":[6009,"YYZ and YVR","32 hr 45 min","Air Canada"]},"2027-01-04":{"QF/LA":[3593,"SCL and MEL","35 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"other":[4548,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"],"AC":[6431,"CUN and YVR","34 hr 5 min","Avianca, Air Canada"]},"2027-01-08":{"QF/LA":[4177,"SCL and MEL","35 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"other":[4548,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"],"AC":[8550,"YUL and YVR","32 hr 45 min","Air Canada"]},"2027-01-12":{"AC":[3582,"YYZ and YVR","32 hr 45 min","Air Canada"],"QF/LA":[3995,"SCL and SYD","33 hr 55 min","LATAM, QantasAir Tahiti NuiOperated by L"],"other":[4854,"LHR and DXB","40 hr 5 min","Avianca, Emirates"]},"2027-01-16":{"AC":[3347,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[4127,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"],"QF/LA":[4370,"SCL and MEL","35 hr 15 min","Avianca, LATAM, QantasOperated by Qantas"]},"2027-01-20":{"AC":[3110,"YUL and YVR","56 hr 45 min","Air Canada"],"other":[3373,"CCS and DOH and SYD","36 hr 35 min","Qatar Airways, Virgin Australia"],"QF/LA":[4037,"SCL and SYD","33 hr 55 min","LATAM, QantasAir Tahiti NuiOperated by L"]},"2027-01-24":{"AC":[2994,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3337,"CCS and DOH","37 hr 30 min","Qatar Airways, Virgin AustraliaOperated "],"QF/LA":[3493,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "]},"2027-01-28":{"AC":[2882,"YYZ and YVR","32 hr 45 min","Air Canada"],"QF/LA":[3310,"BOS and AUH and SYD","53 hr 15 min","Avianca, Etihad, QantasOperated by Qanta"],"other":[3361,"YYZ and DXB","55 hr 35 min","Avianca, Emirates"]},"2027-01-30":{"AC":[2882,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"],"QF/LA":[3368,"SCL and MEL","34 hr 30 min","LATAM, QantasOperated by Latam Airlines "]},"2027-02-01":{"AC":[2882,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"],"QF/LA":[3203,"SCL and MEL","29 hr 10 min","LATAM, QantasOperated by Latam Airlines "]},"2027-02-03":{"QF/LA":[2750,"SCL and MEL","35 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2992,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-02-05":{"QF/LA":[2746,"SCL and SYD","29 hr 30 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2875,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-02-07":{"QF/LA":[2742,"SCL and MEL","29 hr 10 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2875,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3337,"CCS and DOH","37 hr 30 min","Qatar Airways, Virgin AustraliaOperated "]},"2027-02-09":{"QF/LA":[2701,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2875,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[4312,"BCN and DXB","39 hr 35 min","Avianca, Emirates"]},"2027-02-11":{"QF/LA":[2701,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2998,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[4151,"BCN and DXB","39 hr 35 min","Avianca, Emirates"]},"2027-02-13":{"QF/LA":[2733,"SCL and SYD","28 hr 55 min","LATAM, QantasAir Tahiti NuiOperated by L"],"AC":[2882,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-02-15":{"QF/LA":[2701,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2882,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-02-17":{"QF/LA":[2742,"SCL and MEL","29 hr 10 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2877,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-02-19":{"QF/LA":[2735,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2877,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-02-21":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2877,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3339,"CCS and DOH","37 hr 30 min","Qatar Airways, Virgin AustraliaOperated "]},"2027-02-23":{"QF/LA":[2657,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2877,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[4219,"LHR and DXB","40 hr 5 min","Avianca, Emirates"]},"2027-02-25":{"QF/LA":[2750,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2884,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[4173,"BCN and DXB","39 hr 35 min","Avianca, Emirates"]},"2027-02-27":{"QF/LA":[2701,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2884,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-03-08":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2884,"YYZ and YVR","32 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-03-09":{"QF/LA":[2733,"SCL and SYD","28 hr 55 min","LATAM, QantasAir Tahiti NuiOperated by L"],"AC":[2877,"YUL and YVR","32 hr 45 min","Air Canada"],"other":[3361,"YYZ and DXB","55 hr 35 min","Avianca, Emirates"]},"2027-03-13":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2884,"YYZ and YVR","31 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-03-15":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2884,"YYZ and YVR","31 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-03-18":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2884,"YYZ and YVR","31 hr 45 min","Air Canada"],"other":[4219,"LHR and DXB","40 hr 5 min","Avianca, Emirates"]},"2027-03-20":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2884,"YYZ and YVR","31 hr 45 min","Air Canada"],"other":[3185,"MAD and DOH","36 hr 30 min","Iberia, Qatar Airways"]},"2027-03-21":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2877,"YUL and YVR","31 hr 45 min","Air Canada"],"other":[3339,"CCS and DOH","37 hr 30 min","Qatar Airways, Virgin AustraliaOperated "]},"2027-03-25":{"QF/LA":[2450,"SCL and MEL","30 hr 20 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2885,"YYZ and YVR","31 hr 45 min","Air Canada"],"other":[3361,"YYZ and DXB","55 hr 35 min","Avianca, Emirates"]},"2027-04-06":{"QF/LA":[2450,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2878,"YUL and YVR","31 hr 5 min","Air Canada"],"other":[3618,"GIG and DXB","39 hr 15 min","Avianca, Emirates"]},"2027-04-10":{"QF/LA":[2658,"SCL and SYD","30 hr 30 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2878,"YUL and YVR","31 hr 5 min","Air Canada"],"other":[3184,"MAD and DOH","37 hr 55 min","Iberia, Qatar Airways"]},"2027-04-14":{"QF/LA":[2733,"SCL and SYD","30 hr 30 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2885,"YYZ and YVR","31 hr 5 min","Air Canada"],"other":[3202,"MAD and BCN and DOH","37 hr 55 min","Iberia, Qatar Airways"]},"2027-04-18":{"QF/LA":[2658,"SCL and SYD","30 hr 30 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2885,"YYZ and YVR","31 hr 5 min","Air Canada"],"other":[3340,"CCS and DOH","38 hr 20 min","Qatar Airways, Virgin AustraliaOperated "]},"2027-04-22":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2878,"YUL and YVR","31 hr 5 min","Air Canada"],"other":[3361,"YYZ and DXB","55 hr 15 min","Avianca, Emirates"]},"2027-04-26":{"QF/LA":[2701,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2872,"YYZ and YVR","31 hr 5 min","Air Canada"],"other":[3185,"MAD and DOH","37 hr 55 min","Iberia, Qatar Airways"]},"2027-05-04":{"QF/LA":[2450,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2875,"YUL and YVR","31 hr 5 min","Air Canada"],"other":[3599,"GIG and DXB","39 hr 15 min","Avianca, Emirates"]},"2027-05-08":{"QF/LA":[2450,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2874,"YUL and YVR","31 hr 5 min","Air Canada"],"other":[3729,"MAD and DOH","37 hr 55 min","Iberia, Qatar Airways"]},"2027-05-12":{"QF/LA":[2783,"SCL and SYD","30 hr 30 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2872,"YYZ and YVR","31 hr 5 min","Air Canada"],"other":[3370,"CCS and DOH and PER","44 hr 30 min","Qatar Airways, Virgin Australia"]},"2027-05-16":{"QF/LA":[2783,"SCL and SYD","30 hr 30 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2881,"YYZ and YVR","31 hr 5 min","Air Canada"],"other":[3360,"CCS and DOH","38 hr 20 min","Qatar Airways, Virgin AustraliaOperated "]},"2027-05-20":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2873,"YUL and YVR","31 hr 5 min","Air Canada"]},"2027-05-24":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2880,"YYZ and YVR","31 hr 5 min","Air Canada"]},"2027-05-28":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2880,"YYZ and YVR","31 hr 5 min","Air Canada"]},"2027-06-01":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2873,"YUL and YVR","31 hr 5 min","Air Canada"]},"2027-06-05":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2873,"YUL and YVR","31 hr 5 min","Air Canada"]},"2027-06-09":{"QF/LA":[2733,"SCL and SYD","30 hr 30 min","LATAM, QantasOperated by Latam Airlines "],"AC":[3344,"YYZ and YVR","31 hr 5 min","Air Canada"]},"2027-06-17":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2873,"YUL and YVR","31 hr 5 min","Air Canada"]},"2027-06-21":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2880,"YYZ and YVR","31 hr 5 min","Air Canada"]},"2027-06-25":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2996,"YYZ and YVR","31 hr 5 min","Air Canada"]},"2027-06-29":{"QF/LA":[2700,"SCL and MEL","30 hr 5 min","LATAM, QantasOperated by Latam Airlines "],"AC":[2967,"YUL and YVR","31 hr 5 min","Air Canada"]}}};
+
+var NAMES = { "AC": "Air Canada", "QF/LA": "Qantas and LATAM", "QR": "Qatar Airways" };
+var COL = { "AC": "var(--c4)", "QF/LA": "var(--c1)" };
+var ORDER = ["QF/LA", "AC"];
+/* Qatar via Doha is sold as a return on a few dates only (first seen 13 October), so it is shown where a fare exists and left out of the chart. */
+var SNAP0 = "2026-09-11", SNAP1 = "2026-10-13";
+function snapOf(r) { return r[6] || SNAP0; }
+function dayMon(d) { return new Date(d + "T00:00:00").toLocaleDateString("en-AU", { day: "numeric", month: "short" }); }
+function wday(d) { return new Date(d + "T00:00:00").toLocaleDateString("en-AU", { weekday: "short" }); }
+var AIRPORTS = {
+  BNE: "Brisbane Airport, Australia", BOG: "El Dorado International, Bogotá, Colombia",
+  AKL: "Auckland Airport, New Zealand (airside transit, NZeTA needed)", SCL: "Arturo Merino Benítez International, Santiago, Chile (visa-free for Colombians)",
+  MEL: "Melbourne Airport (Tullamarine), Australia", SYD: "Sydney Kingsford Smith, Australia",
+  YVR: "Vancouver International, Canada (Canadian visa needed to transit)", YYZ: "Toronto Pearson International, Canada (Canadian visa needed to transit)",
+  YUL: "Montréal-Trudeau International, Canada (Canadian visa needed to transit)",
+  DOH: "Hamad International, Doha, Qatar", DXB: "Dubai International, United Arab Emirates", MAD: "Madrid-Barajas, Spain",
+  MEX: "Mexico City International, Mexico", LIM: "Jorge Chávez International, Lima, Peru", PTY: "Tocumen International, Panama City, Panama",
+  LHR: "London Heathrow, United Kingdom", HKG: "Hong Kong International", SIN: "Singapore Changi", GRU: "São Paulo Guarulhos, Brazil",
+  AUH: "Abu Dhabi Zayed International", CDG: "Paris Charles de Gaulle, France", FRA: "Frankfurt Airport, Germany", AMS: "Amsterdam Schiphol, Netherlands"
+};
+
+var TFS_BASE = "CBwQAhpOEgoyMDI2LTEyLTE1agcIARIDQk5FcgcIARIDQk9HggEDQVRMggEDREZXggEDSUFIggEDTEFYggEDTUlBggEDTUNPggEDUEhYggEDU0ZPGk4SCjIwMjctMDMtMTVqBwgBEgNCT0dyBwgBEgNCTkWCAQNBVEyCAQNERleCAQNJQUiCAQNMQViCAQNNSUGCAQNNQ0-CAQNQSFiCAQNTRk9AAUgBcAGCAQsI____________AZgBAQ";
+function gfUrl(dep, ret) {
+  var b64 = TFS_BASE.replace(/-/g, "+").replace(/_/g, "/");
+  while (b64.length % 4) b64 += "=";
+  var raw = atob(b64).split("2026-12-15").join(dep).split("2027-03-15").join(ret);
+  var enc = btoa(raw).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  return "https://www.google.com/travel/flights/search?tfs=" + enc + "&tfu=EgYIABAAGAA&hl=en&gl=AU&curr=AUD";
+}
+
+function fmt(n) { return "A$" + n.toLocaleString("en-AU"); }
+function dayDiff(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 86400000); }
+function nice(d) { return new Date(d + "T00:00:00").toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" }); }
+function cheapestOf(rows) { return rows.slice().sort(function (a, b) { return a[4] - b[4]; })[0]; }
+function stayOf(r) { return dayDiff(r[0], r[1]) <= 75 ? 2 : 3; }
+function apHtml(via) { return via.replace(/\b[A-Z]{3}\b/g, function (c) { return AIRPORTS[c] ? '<span class="ap" data-ap="' + c + '" tabindex="0">' + c + '</span>' : c; }); }
+function fareAttr(r) { return ' class="fare" tabindex="0" data-fare="' + [r[0], r[1], r[2], r[4], snapOf(r)].join("|") + '"'; }
+function fareCell(r) { return '<td class="num">' + (r ? '<span' + fareAttr(r) + '>' + fmt(r[4]) + '</span>' : '<span class="none">none</span>') + '</td>'; }
+
+var stay = 3, sortKey = "dep";
+var byDep = {};
+DATA.forEach(function (r) { (byDep[r[0]] = byDep[r[0]] || []).push(r); });
+var deps = Object.keys(byDep).sort();
+function inStay(r) { return stay === 0 || stayOf(r) === stay; }
+function rowsFor(dep) { return (byDep[dep] || []).filter(inStay); }
+function stayWord() { return stay === 0 ? "any length of stay" : "about " + stay + " months away"; }
+
+function render() {
+  var dep = document.getElementById("dep").value, ret = document.getElementById("ret").value;
+  var out = document.getElementById("out");
+  if (!dep || !ret) { out.innerHTML = ""; return; }
+  var days = dayDiff(dep, ret);
+  var exact = DATA.filter(function (r) { return r[0] === dep && r[1] === ret; });
+  var html = '<div class="stamp">' + nice(dep).toUpperCase() + ' TO ' + nice(ret).toUpperCase() + ' · ' + days + ' DAYS AWAY' + (exact.length ? ' · PRICED ' + nice(snapOf(exact[0])).toUpperCase() : '') + '</div>';
+  var sampled = byDep[dep] || [];
+  if (exact.length) {
+    html += '<div>';
+    ORDER.concat(exact.some(function (x) { return x[2] === "QR"; }) ? ["QR"] : []).forEach(function (c) {
+      var mine = exact.filter(function (x) { return x[2] === c; });
+      var r = mine.length ? cheapestOf(mine) : null;
+      html += '<div class="price-row"><div><div class="who">' + NAMES[c] + '</div><div class="meta">' + (r ? 'via ' + apHtml(r[3]) + ' · ' + r[5] : 'no through-fare shown on these dates') + '</div></div>';
+      html += '<div class="amt">' + (r ? '<small>RETURN</small><span' + fareAttr(r) + '>' + fmt(r[4]) + '</span>' : '<span class="none">none</span>') + '</div></div>';
+    });
+    html += '</div>';
+  } else if (sampled.length) {
+    html += '<p class="none" style="margin-top:10px">This return date was not sampled. Returns sampled for a ' + nice(dep) + ' departure:</p>' + returnsTable(sampled);
+  } else {
+    var near = deps.filter(function (d) { return rowsFor(d).length; }).sort(function (a, b) { return Math.abs(dayDiff(a, dep)) - Math.abs(dayDiff(b, dep)); }).slice(0, 2);
+    html += '<p class="none" style="margin-top:10px">This departure was not sampled. Nearest sampled departures, ' + stayWord() + ':</p><div class="quick" style="margin-top:0">' + near.map(function (d) {
+      var best = cheapestOf(rowsFor(d));
+      return '<button class="btn quiet" data-dep="' + d + '" data-ret="' + best[1] + '">' + nice(d) + ' from ' + fmt(best[4]) + '</button>';
+    }).join('') + '</div>';
+  }
+  html += '<div class="gf"><a class="btn primary" target="_blank" rel="noopener" href="' + gfUrl(dep, ret) + '">Open these dates on Google Flights, US airports excluded</a></div>';
+  if (exact.length && sampled.length > exact.length) {
+    html += '<div class="returns"><div class="meta">Other returns sampled for this departure</div>' + returnsTable(sampled.filter(function (r) { return r[1] !== ret; })) + '</div>';
+  }
+  out.innerHTML = html;
+  markChart(dep);
+}
+
+function returnsTable(rows) {
+  var rets = {};
+  rows.forEach(function (r) { var slot = rets[r[1]] = rets[r[1]] || {}; if (!slot[r[2]] || r[4] < slot[r[2]][4]) slot[r[2]] = r; });
+  var qatar = rows.some(function (r) { return r[2] === "QR"; });
+  var h = '<div class="table-wrap"><table><thead><tr><th>Return</th><th class="num">Days</th><th class="num">Qantas + LATAM</th><th class="num">Air Canada</th>' + (qatar ? '<th class="num">Qatar</th>' : '') + '</tr></thead><tbody>';
+  Object.keys(rets).sort().forEach(function (rt) {
+    h += '<tr><td class="mono"><button class="btn quiet" style="padding:4px 8px;min-height:0" data-dep="' + rows[0][0] + '" data-ret="' + rt + '">' + nice(rt) + '</button></td><td class="num">' + dayDiff(rows[0][0], rt) + '</td>' + fareCell(rets[rt]["QF/LA"]) + fareCell(rets[rt]["AC"]) + (qatar ? fareCell(rets[rt]["QR"]) : '') + '</tr>';
+  });
+  return h + '</tbody></table></div>';
+}
+
+/* 13 October grid: departures down, returns across, one routing at a time. Built from the DATA rows stamped with that snapshot. */
+var rfRoute = "QF/LA";
+function buildRefresh() {
+  var rows = DATA.filter(function (r) { return r[6] === SNAP1; });
+  var rdeps = [], rrets = [], at = {};
+  rows.forEach(function (r) {
+    if (rdeps.indexOf(r[0]) < 0) rdeps.push(r[0]);
+    if (rrets.indexOf(r[1]) < 0) rrets.push(r[1]);
+    at[r[0] + "|" + r[1] + "|" + r[2]] = r;
+  });
+  rdeps.sort(); rrets.sort();
+  var mine = rows.filter(function (r) { return r[2] === rfRoute; }).sort(function (a, b) { return a[4] - b[4]; });
+  var low = mine.length ? mine[0][4] : null;
+  var h = '<thead><tr><th>Depart</th>' + rrets.map(function (rt) { return '<th class="num">Back ' + dayMon(rt) + '</th>'; }).join('') + '</tr></thead><tbody>';
+  rdeps.forEach(function (d) {
+    h += '<tr><td class="mono">' + wday(d) + ' ' + dayMon(d) + '</td>';
+    rrets.forEach(function (rt) {
+      var r = at[d + "|" + rt + "|" + rfRoute];
+      h += '<td class="num">' + (r ? '<button class="btn quiet cell' + (r[4] === low ? ' low' : '') + '" data-dep="' + d + '" data-ret="' + rt + '">' + r[4].toLocaleString("en-AU") + '</button>' : '<span class="none">none</span>') + '</td>';
+    });
+    h += '</tr>';
+  });
+  document.getElementById("rf").innerHTML = h + '</tbody>';
+  document.getElementById("rf-note").textContent = NAMES[rfRoute] + ': ' + mine.length + ' of ' + (rdeps.length * rrets.length) + ' date pairs have a fare' + (mine.length ? ', ' + fmt(low) + ' to ' + fmt(mine[mine.length - 1][4]) + ' return. The lowest is outlined. Tap a fare to load those dates below.' : '.');
+}
+
+/* Quick picks are computed for the chosen length of stay. */
+function pick(label, from, to) {
+  var pool = DATA.filter(function (r) { return inStay(r) && r[2] === "QF/LA" && r[0] >= from && r[0] <= to; });
+  if (!pool.length) return "";
+  var b = cheapestOf(pool);
+  return '<button class="btn quiet" data-dep="' + b[0] + '" data-ret="' + b[1] + '">' + label + ': ' + nice(b[0]) + ' to ' + nice(b[1]) + ', ' + fmt(b[4]) + '</button>';
+}
+function buildQuick() {
+  var h = pick("Christmas there", "2026-11-25", "2026-12-12") + pick("November", "2026-11-01", "2026-11-24") + pick("After the holidays", "2027-01-08", "2027-02-15") + pick("Autumn", "2027-02-16", "2027-03-31");
+  var all = DATA.filter(inStay);
+  if (all.length) { var c = cheapestOf(all); h += '<button class="btn quiet" data-dep="' + c[0] + '" data-ret="' + c[1] + '">Cheapest any routing: ' + nice(c[0]) + ', ' + fmt(c[4]) + '</button>'; }
+  document.getElementById("quick").innerHTML = h;
+}
+
+/* Chart: one bar per routing per sampled departure, cheapest return within the chosen stay. */
+var W = 1000, H = 300, PL = 44, PR = 12, PT = 18, PB = 34;
+var T0 = Date.parse("2026-11-01"), T1 = Date.parse("2027-04-01");
+var YMAX = 10000;
+function xOf(d) { return PL + (Date.parse(d) - T0) / (T1 - T0) * (W - PL - PR); }
+function yOf(v) { return PT + (1 - v / YMAX) * (H - PT - PB); }
+function buildChart() {
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Cheapest return fare by departure date, two routings">';
+  [2000, 4000, 6000, 8000, 10000].forEach(function (v) {
+    s += '<line class="grid" x1="' + PL + '" x2="' + (W - PR) + '" y1="' + yOf(v) + '" y2="' + yOf(v) + '"/>';
+    s += '<text class="axis" x="' + (PL - 6) + '" y="' + (yOf(v) + 3) + '" text-anchor="end">' + (v / 1000) + 'k</text>';
+  });
+  var xm = xOf("2026-12-25");
+  s += '<line class="xmas" x1="' + xm + '" x2="' + xm + '" y1="' + PT + '" y2="' + (H - PB) + '"/>';
+  s += '<text class="axis" x="' + (xm + 4) + '" y="' + (PT + 10) + '">25 DEC</text>';
+  ["2026-11-01", "2026-12-01", "2027-01-01", "2027-02-01", "2027-03-01"].forEach(function (d) {
+    s += '<text class="axis" x="' + xOf(d) + '" y="' + (H - PB + 14) + '">' + new Date(d + "T00:00:00").toLocaleDateString("en-AU", { month: "short" }).toUpperCase() + '</text>';
+  });
+  var bw = 3, minBy = {}, n = 0;
+  deps.forEach(function (d) {
+    var rows = rowsFor(d); if (!rows.length) return; n++;
+    var g = '<g class="bar" tabindex="0" role="button" data-dep="' + d + '" aria-label="' + nice(d) + '">';
+    g += '<rect class="hit" x="' + (xOf(d) - 5) + '" y="' + PT + '" width="10" height="' + (H - PT - PB) + '" fill="transparent"/>';
+    ORDER.forEach(function (c, i) {
+      var mine = rows.filter(function (x) { return x[2] === c; });
+      if (!mine.length) return;
+      var r = cheapestOf(mine);
+      var x = xOf(d) + (i === 0 ? -bw : 0.4);
+      g += '<rect x="' + x + '" y="' + yOf(r[4]) + '" width="' + bw + '" height="' + (yOf(0) - yOf(r[4])) + '" fill="' + COL[c] + '"><title>' + NAMES[c] + ', ' + nice(d) + ' to ' + nice(r[1]) + ': ' + fmt(r[4]) + ', priced ' + dayMon(snapOf(r)) + '</title></rect>';
+      if (!minBy[c] || r[4] < minBy[c][1]) minBy[c] = [d, r[4]];
+    });
+    s += g + '</g>';
+  });
+  ORDER.forEach(function (c, i) {
+    var m = minBy[c]; if (!m) return;
+    s += '<text class="dlabel" x="' + (xOf(m[0]) + (i === 0 ? -6 : 6)) + '" y="' + (yOf(m[1]) - 5) + '" text-anchor="' + (i === 0 ? 'end' : 'start') + '">' + NAMES[c].split(" ")[0].toUpperCase() + ' LOW ' + fmt(m[1]) + '</text>';
+  });
+  s += '<line class="base" x1="' + PL + '" x2="' + (W - PR) + '" y1="' + yOf(0) + '" y2="' + yOf(0) + '"/>';
+  document.getElementById("chart").innerHTML = s + '</svg>';
+  document.getElementById("chart-note").textContent = n + " departures, " + stayWord();
+  markChart(document.getElementById("dep").value);
+}
+function markChart(dep) {
+  document.querySelectorAll("#chart .bar").forEach(function (g) { g.classList.toggle("sel", g.getAttribute("data-dep") === dep); });
+}
+
+function buildTable() {
+  var rows = DATA.filter(inStay).slice();
+  var cmp = {
+    dep: function (a, b) { return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : a[4] - b[4]; },
+    price: function (a, b) { return a[4] - b[4] || (a[0] < b[0] ? -1 : 1); },
+    ret: function (a, b) { return a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : a[4] - b[4]; },
+    days: function (a, b) { return dayDiff(a[0], a[1]) - dayDiff(b[0], b[1]) || a[4] - b[4]; }
+  }[sortKey];
+  rows.sort(cmp);
+  var h = "";
+  rows.forEach(function (r) {
+    h += '<tr><td class="mono"><button class="btn quiet" style="padding:3px 7px;min-height:0;font-family:var(--font-data);font-weight:400" data-dep="' + r[0] + '" data-ret="' + r[1] + '">' + r[0] + '</button></td><td class="mono">' + r[1] + '</td><td class="num">' + dayDiff(r[0], r[1]) + '</td><td>' + NAMES[r[2]] + '</td><td class="mono">' + apHtml(r[3]) + '</td><td class="mono">' + r[5] + '</td><td class="mono">' + dayMon(snapOf(r)) + '</td><td class="num"><span' + fareAttr(r) + '>' + r[4].toLocaleString("en-AU") + '</span></td></tr>';
+  });
+  document.querySelector("#all tbody").innerHTML = h;
+  document.getElementById("table-note").textContent = rows.length + " fares, " + stayWord();
+}
+
+/* Popups */
+var tip = document.getElementById("tip"), tipFor = null;
+function tipHtml(el) {
+  if (el.dataset.ap) return '<div class="t-head">' + el.dataset.ap + '</div>' + AIRPORTS[el.dataset.ap];
+  var f = el.dataset.fare.split("|"), dep = f[0], ret = f[1], c = f[2], price = +f[3], snap = f[4];
+  if (c === "QR") return '<div class="t-head">QATAR AIRWAYS · RETURN FARE PRICED ' + dayMon(snap).toUpperCase() + '</div>One-way fares were not sampled for this routing.';
+  if (snap !== SNAP0 && (!ONEWAY.out[dep] || !ONEWAY.back[ret])) return '<div class="t-head">' + NAMES[c].toUpperCase() + ' · RETURN FARE PRICED ' + dayMon(snap).toUpperCase() + '</div>One-way fares were not sampled for these dates.';
+  var late = snap !== SNAP0 ? '<div class="meta" style="margin-top:4px">The one-way fares are from ' + dayMon(SNAP0) + '; this return fare is from ' + dayMon(snap) + '.</div>' : '';
+  var o = (ONEWAY.out[dep] || {})[c], b = (ONEWAY.back[ret] || {})[c];
+  var h = '<div class="t-head">' + NAMES[c].toUpperCase() + ' · ONE-WAY FARES ON THESE DATES</div><table>';
+  h += '<tr><td>Out ' + nice(dep) + '</td><td class="num">' + (o ? fmt(o[0]) : '<span class="none">not shown</span>') + '</td></tr>';
+  h += '<tr><td>Back ' + nice(ret) + '</td><td class="num">' + (b ? fmt(b[0]) : '<span class="none">not shown</span>') + '</td></tr>';
+  if (o && b) {
+    var sum = o[0] + b[0], diff = sum - price;
+    h += '<tr><td>Two one-ways</td><td class="num">' + fmt(sum) + '</td></tr><tr><td>Return ticket</td><td class="num">' + fmt(price) + '</td></tr>';
+    h += '</table><div class="meta" style="margin-top:4px">' + (diff > 0 ? 'The return ticket is ' + fmt(diff) + ' cheaper than booking two one-ways.' : diff < 0 ? 'Two one-ways would be ' + fmt(-diff) + ' cheaper than the return ticket.' : 'Same price either way.') + '</div>';
+  } else {
+    h += '</table><div class="meta" style="margin-top:4px">' + (Object.keys(ONEWAY.out).length ? 'This routing was not offered one-way on ' + (o ? 'the return date' : b ? 'the departure date' : 'these dates') + '.' : 'One-way fares not sampled yet.') + '</div>';
+  }
+  return h + late;
+}
+function showTip(el) {
+  tipFor = el; tip.innerHTML = tipHtml(el); tip.hidden = false;
+  var r = el.getBoundingClientRect(), x = r.left + window.scrollX, y = r.bottom + window.scrollY + 6;
+  var maxX = document.documentElement.clientWidth - tip.offsetWidth - 8;
+  tip.style.left = Math.max(8, Math.min(x, maxX)) + "px"; tip.style.top = y + "px";
+}
+function hideTip() { tip.hidden = true; tipFor = null; }
+function popTarget(e) { return e.target && e.target.closest ? e.target.closest(".ap, .fare") : null; }
+document.addEventListener("mouseover", function (e) { var t = popTarget(e); if (t) showTip(t); });
+document.addEventListener("mouseout", function (e) { var t = popTarget(e); if (t && t === tipFor) hideTip(); });
+document.addEventListener("focusin", function (e) { var t = popTarget(e); if (t) showTip(t); });
+document.addEventListener("focusout", function (e) { if (popTarget(e)) hideTip(); });
+document.addEventListener("click", function (e) {
+  var t = popTarget(e);
+  if (t) { if (tipFor === t && !tip.hidden) hideTip(); else showTip(t); return; }
+  if (!(e.target.closest && e.target.closest("#tip"))) hideTip();
+});
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") hideTip(); });
+
+/* Controls */
+function setPair(dep, ret) {
+  document.getElementById("dep").value = dep;
+  if (!ret && rowsFor(dep).length) ret = cheapestOf(rowsFor(dep))[1];
+  if (ret) document.getElementById("ret").value = ret;
+  render();
+  document.getElementById("out").scrollIntoView({ block: "nearest" });
+}
+document.addEventListener("click", function (e) {
+  if (!e.target.closest) return;
+  var rr = e.target.closest("#rf-route button"); if (rr) { rfRoute = rr.dataset.route; syncSeg("rf-route", "route", rfRoute); buildRefresh(); return; }
+  var b = e.target.closest("[data-dep]"); if (b) { setPair(b.getAttribute("data-dep"), b.getAttribute("data-ret")); return; }
+  var s = e.target.closest("#stay button"); if (s) {
+    stay = +s.dataset.stay; syncSeg("stay", "stay", String(stay)); buildQuick(); buildChart(); buildTable();
+    var cur = [document.getElementById("dep").value, document.getElementById("ret").value];
+    var pool = DATA.filter(inStay);
+    if (pool.length && !inStay(cur)) {
+      var near = deps.filter(function (d) { return rowsFor(d).length; }).sort(function (a, b) { return Math.abs(dayDiff(a, cur[0])) - Math.abs(dayDiff(b, cur[0])); })[0];
+      setPair(near, null);
+    } else render();
+    return;
+  }
+  var o = e.target.closest("#sort button"); if (o) { sortKey = o.dataset.sort; syncSeg("sort", "sort", sortKey); buildTable(); }
+});
+function syncSeg(id, attr, val) { document.querySelectorAll("#" + id + " button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset[attr] === val ? "true" : "false"); }); }
+document.addEventListener("keydown", function (e) {
+  if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("bar")) { e.preventDefault(); setPair(e.target.getAttribute("data-dep"), null); }
+});
+document.getElementById("dep").addEventListener("change", render);
+document.getElementById("ret").addEventListener("change", render);
+
+var toggle = document.getElementById("mode");
+toggle.addEventListener("click", function () {
+  var root = document.documentElement, next = root.getAttribute("data-mode") === "dark" ? "light" : "dark";
+  root.setAttribute("data-mode", next); toggle.textContent = next === "dark" ? "LIGHT MODE" : "DARK MODE";
+  try { localStorage.setItem("page-mode", next); } catch (e) {}
+});
+try { var saved = localStorage.getItem("page-mode"); if (saved) { document.documentElement.setAttribute("data-mode", saved); toggle.textContent = saved === "dark" ? "LIGHT MODE" : "DARK MODE"; } } catch (e) {}
+
+buildRefresh(); buildQuick(); buildChart(); buildTable(); render();
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+dep,ret,carrier,via,price_aud,duration,airline_as_shown,note
+2026-11-10,2027-01-06,QF/LA,SYD and SCL,4327,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-10,2027-01-06,QF/LA,AKL and SCL,4747,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-10,2027-01-06,AC,YVR and YUL,2924,33 hr 35 min,Air Canada,
+2026-11-10,2027-01-06,other,DOH,4441,33 hr 30 min,Qatar Airways,
+2026-11-10,2027-01-11,QF/LA,SYD and SCL,4107,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-10,2027-01-11,QF/LA,MEL and SCL,4431,28 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-10,2027-01-11,AC,YVR and YUL,2880,33 hr 35 min,Air Canada,
+2026-11-10,2027-01-16,QF/LA,MEL and SCL,4603,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-10,2027-01-16,QF/LA,MEL and SCL,4663,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-10,2027-01-16,AC,YVR and YUL,3505,33 hr 35 min,Air Canada,
+2026-11-10,2027-01-21,QF/LA,MEL and SCL,4885,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-10,2027-01-21,QF/LA,MEL and SCL,4951,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-10,2027-01-21,AC,YVR and YUL,2605,33 hr 35 min,Air Canada,
+2026-11-10,2027-01-26,QF/LA,MEL and SCL,4603,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-10,2027-01-26,QF/LA,MEL and SCL,4663,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-10,2027-01-26,AC,YVR and YUL,2549,33 hr 35 min,Air Canada,
+2026-11-10,2027-01-26,other,DXB and New York,4518,54 hr 30 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-10,2027-01-31,QF/LA,MEL and SCL,4118,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-10,2027-01-31,QF/LA,MEL and SCL,4431,28 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-10,2027-01-31,AC,YVR and YUL,2119,33 hr 35 min,Air Canada,
+2026-11-10,2027-01-31,other,DOH,3582,33 hr 30 min,Qatar Airways,
+2026-11-11,2027-01-06,QF/LA,SYD and SCL,4303,30 hr 20 min,Qantas and Avianca,
+2026-11-11,2027-01-06,AC,YVR and YYZ,2930,33 hr 35 min,Air Canada,
+2026-11-11,2027-01-11,QF/LA,SYD and SCL,4071,30 hr 20 min,Qantas and Avianca,
+2026-11-11,2027-01-11,AC,YVR and YYZ,2887,33 hr 35 min,Air Canada,
+2026-11-11,2027-01-16,QF/LA,SYD and SCL,4327,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-11,2027-01-16,QF/LA,SYD and SCL,4357,30 hr 20 min,Qantas and Avianca,cheapest without a Wamos-operated leg
+2026-11-11,2027-01-16,AC,YVR and YYZ,3512,33 hr 35 min,Air Canada,
+2026-11-11,2027-01-21,QF/LA,MEL and SCL,4548,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-11,2027-01-21,QF/LA,SYD and SCL,5009,29 hr 20 min,Qantas and Avianca,cheapest without a Wamos-operated leg
+2026-11-11,2027-01-21,AC,YVR and YYZ,2612,33 hr 35 min,Air Canada,
+2026-11-11,2027-01-26,QF/LA,SYD and SCL,4327,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-11,2027-01-26,QF/LA,SYD and SCL,4686,29 hr 20 min,Qantas and Avianca,cheapest without a Wamos-operated leg
+2026-11-11,2027-01-26,AC,YVR and YYZ,2555,33 hr 35 min,Air Canada,
+2026-11-11,2027-01-31,QF/LA,MEL and SCL,3779,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-11,2027-01-31,QF/LA,MEL and SCL,4487,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-11,2027-01-31,AC,YVR and YYZ,2125,33 hr 35 min,Air Canada,
+2026-11-12,2027-01-06,QF/LA,MEL and SCL,4603,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-12,2027-01-06,QF/LA,MEL and SCL,4663,30 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-12,2027-01-06,AC,YVR and YUL,2924,33 hr 35 min,Air Canada,
+2026-11-12,2027-01-06,other,DXB and LHR,6645,45 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-12,2027-01-11,QF/LA,MEL and SCL,4371,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-12,2027-01-11,QF/LA,MEL and SCL,4431,30 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-12,2027-01-11,AC,YVR and YUL,2880,33 hr 35 min,Air Canada,
+2026-11-12,2027-01-11,other,DXB and LHR,5698,45 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-12,2027-01-16,QF/LA,SYD and SCL,4580,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-12,2027-01-16,QF/LA,MEL and SCL,4663,30 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-12,2027-01-16,AC,YVR and YUL,3505,33 hr 35 min,Air Canada,
+2026-11-12,2027-01-21,QF/LA,SYD and SCL,4580,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-12,2027-01-21,QF/LA,MEL and SCL,4951,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-12,2027-01-21,AC,YVR and YUL,2605,33 hr 35 min,Air Canada,
+2026-11-12,2027-01-26,QF/LA,SYD and SCL,4576,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-12,2027-01-26,QF/LA,MEL and SCL,4663,30 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-12,2027-01-26,AC,YVR and YUL,2549,33 hr 35 min,Air Canada,
+2026-11-12,2027-01-31,QF/LA,SYD and SCL,3811,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-12,2027-01-31,QF/LA,MEL and SCL,4722,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-12,2027-01-31,AC,YVR and YUL,2119,33 hr 35 min,Air Canada,
+2026-11-13,2027-01-06,QF/LA,MEL and SCL,4603,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-13,2027-01-06,QF/LA,AKL and SCL,5149,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-13,2027-01-06,AC,YVR and YYZ,3080,33 hr 35 min,Air Canada,
+2026-11-13,2027-01-06,other,PER and DOH,4505,58 hr 45 min,Virgin Australia and Qatar Airways,over 36 hours or three stops
+2026-11-13,2027-01-11,QF/LA,MEL and SCL,4371,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-13,2027-01-11,QF/LA,AKL and SCL,4914,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-13,2027-01-11,AC,YVR and YYZ,3037,33 hr 35 min,Air Canada,
+2026-11-13,2027-01-16,QF/LA,MEL and SCL,4603,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-13,2027-01-16,QF/LA,AKL and SCL,13108,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-13,2027-01-16,AC,YVR and YYZ,3662,33 hr 35 min,Air Canada,
+2026-11-13,2027-01-21,QF/LA,SYD and SCL,4580,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-13,2027-01-21,QF/LA,AKL and SCL,6239,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-13,2027-01-21,AC,YVR and YYZ,2762,33 hr 35 min,Air Canada,
+2026-11-13,2027-01-26,QF/LA,MEL and SCL,4603,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-13,2027-01-26,QF/LA,AKL and SCL,5149,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-13,2027-01-26,AC,YVR and YYZ,2705,33 hr 35 min,Air Canada,
+2026-11-13,2027-01-26,other,DXB and New York,4629,57 hr 35 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-13,2027-01-31,QF/LA,SYD and SCL,3811,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-13,2027-01-31,QF/LA,AKL and SCL,5208,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-13,2027-01-31,AC,YVR and YYZ,2275,33 hr 35 min,Air Canada,
+2026-11-13,2027-01-31,other,PER and DOH,3645,58 hr 45 min,Virgin Australia and Qatar Airways,over 36 hours or three stops
+2026-11-14,2027-01-06,QF/LA,MEL and SCL,4603,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-14,2027-01-06,AC,YVR and YUL,3074,33 hr 35 min,Air Canada,
+2026-11-14,2027-01-06,other,DOH,4483,33 hr 30 min,Qatar Airways,
+2026-11-14,2027-01-11,QF/LA,MEL and SCL,4371,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-14,2027-01-11,AC,YVR and YUL,3030,33 hr 35 min,Air Canada,
+2026-11-14,2027-01-16,QF/LA,SYD and SCL,4580,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-14,2027-01-16,AC,YVR and YUL,3655,33 hr 35 min,Air Canada,
+2026-11-14,2027-01-21,QF/LA,SYD and SCL,4580,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-14,2027-01-21,AC,YVR and YUL,2755,33 hr 35 min,Air Canada,
+2026-11-14,2027-01-21,other,DXB and MAD,6226,38 hr 50 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-14,2027-01-26,QF/LA,SYD and SCL,4576,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-14,2027-01-26,AC,YVR and YUL,2699,33 hr 35 min,Air Canada,
+2026-11-14,2027-01-26,other,DXB and MAD,6040,38 hr 50 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-14,2027-01-31,QF/LA,SYD and SCL,3811,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-14,2027-01-31,AC,YVR and YUL,2269,33 hr 35 min,Air Canada,
+2026-11-14,2027-01-31,other,DOH,3623,33 hr 30 min,Qatar Airways,
+2026-11-15,2027-01-06,QF/LA,MEL and SCL,4603,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-15,2027-01-06,QF/LA,AKL and SCL,20880,24 hr 5 min,"Air New Zealand, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-15,2027-01-06,AC,YVR and YYZ,3080,33 hr 35 min,Air Canada,
+2026-11-15,2027-01-11,QF/LA,MEL and SCL,4371,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-15,2027-01-11,QF/LA,AKL and SCL,14104,24 hr 5 min,"Air New Zealand, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-15,2027-01-11,AC,YVR and YYZ,3037,33 hr 35 min,Air Canada,
+2026-11-15,2027-01-16,QF/LA,MEL and SCL,4603,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-15,2027-01-16,QF/LA,AKL and SCL,5149,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-15,2027-01-16,AC,YVR and YYZ,3662,33 hr 35 min,Air Canada,
+2026-11-15,2027-01-21,QF/LA,SYD and SCL,4782,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-15,2027-01-21,AC,YVR and YYZ,2762,33 hr 35 min,Air Canada,
+2026-11-15,2027-01-26,QF/LA,MEL and SCL,4603,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-15,2027-01-26,QF/LA,AKL and SCL,14036,24 hr 5 min,"Air New Zealand, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-15,2027-01-26,AC,YVR and YYZ,2705,33 hr 35 min,Air Canada,
+2026-11-15,2027-01-26,other,DXB and New York,4505,54 hr 30 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-15,2027-01-31,QF/LA,SYD and SCL,4007,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-15,2027-01-31,QF/LA,AKL and SCL,5208,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-15,2027-01-31,AC,YVR and YYZ,2275,33 hr 35 min,Air Canada,
+2026-11-15,2027-01-31,other,DXB and MAD,5819,38 hr 50 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-16,2027-01-06,QF/LA,SYD and SCL,4477,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-16,2027-01-06,QF/LA,SYD and SCL,5245,29 hr 20 min,Qantas and Avianca,cheapest without a Wamos-operated leg
+2026-11-16,2027-01-06,AC,YVR and YYZ,3360,33 hr 35 min,Air Canada,
+2026-11-16,2027-01-06,other,PER and DOH,4463,58 hr 45 min,Virgin Australia and Qatar Airways,over 36 hours or three stops
+2026-11-16,2027-01-11,QF/LA,SYD and SCL,4245,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-16,2027-01-11,AC,YVR and YYZ,3317,33 hr 35 min,Air Canada,
+2026-11-16,2027-01-16,QF/LA,SYD and SCL,4530,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-16,2027-01-16,QF/LA,AKL and SCL,20316,24 hr 5 min,"Air New Zealand, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-16,2027-01-16,AC,YVR and YYZ,3942,33 hr 35 min,Air Canada,
+2026-11-16,2027-01-16,other,DXB and LHR,5761,40 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-16,2027-01-21,QF/LA,SYD and SCL,4580,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-16,2027-01-21,AC,YVR and YYZ,3042,33 hr 35 min,Air Canada,
+2026-11-16,2027-01-21,other,DXB and MAD,6112,42 hr 55 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-16,2027-01-26,QF/LA,SYD and SCL,4477,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-16,2027-01-26,QF/LA,AKL and SCL,13123,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-16,2027-01-26,AC,YVR and YYZ,2985,33 hr 35 min,Air Canada,
+2026-11-16,2027-01-26,other,DXB and MAD,5993,42 hr 55 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-16,2027-01-31,QF/LA,SYD and SCL,3811,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-16,2027-01-31,AC,YVR and YYZ,2555,33 hr 35 min,Air Canada,
+2026-11-16,2027-01-31,other,PER and DOH,3604,58 hr 45 min,Virgin Australia and Qatar Airways,over 36 hours or three stops
+2026-11-17,2027-01-06,QF/LA,SYD and SCL,4477,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-17,2027-01-06,QF/LA,MEL and SCL,4663,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-17,2027-01-06,AC,YVR and YUL,2924,33 hr 35 min,Air Canada,
+2026-11-17,2027-01-06,other,DOH,4441,33 hr 30 min,Qatar Airways,
+2026-11-17,2027-01-11,QF/LA,SYD and SCL,4245,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-17,2027-01-11,QF/LA,MEL and SCL,4431,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-17,2027-01-11,AC,YVR and YUL,2880,33 hr 35 min,Air Canada,
+2026-11-17,2027-01-16,QF/LA,SYD and SCL,4233,30 hr 20 min,Qantas and Avianca,
+2026-11-17,2027-01-16,AC,YVR and YUL,3505,33 hr 35 min,Air Canada,
+2026-11-17,2027-01-21,QF/LA,SYD and SCL,4736,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-17,2027-01-21,QF/LA,MEL and SCL,5013,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-17,2027-01-21,AC,YVR and YUL,2605,33 hr 35 min,Air Canada,
+2026-11-17,2027-01-26,QF/LA,SYD and SCL,4477,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-17,2027-01-26,QF/LA,MEL and SCL,4675,29 hr 20 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-17,2027-01-26,AC,YVR and YUL,2549,33 hr 35 min,Air Canada,
+2026-11-17,2027-01-26,other,DXB and MAD,5819,38 hr 50 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-17,2027-01-31,QF/LA,SYD and SCL,3970,30 hr 35 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-17,2027-01-31,QF/LA,AKL and SCL,4512,26 hr 50 min,"Qantas, LATAM and Avianca",cheapest without a Wamos-operated leg
+2026-11-17,2027-01-31,AC,YVR and YUL,2119,33 hr 35 min,Air Canada,
+2026-11-17,2027-01-31,other,DOH,3582,33 hr 30 min,Qatar Airways,
+2026-11-18,2027-01-06,QF/LA,SYD and SCL,4453,30 hr 20 min,Qantas and Avianca,
+2026-11-18,2027-01-06,AC,YVR and YYZ,2930,33 hr 35 min,Air Canada,
+2026-11-18,2027-01-06,other,DXB and LHR,6294,40 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-18,2027-01-11,QF/LA,SYD and SCL,4221,30 hr 20 min,Qantas and Avianca,
+2026-11-18,2027-01-11,AC,YVR and YYZ,2887,33 hr 35 min,Air Canada,
+2026-11-18,2027-01-11,other,DXB and LHR,5698,40 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-18,2027-01-16,QF/LA,SYD and SCL,4453,30 hr 20 min,Qantas and Avianca,
+2026-11-18,2027-01-16,AC,YVR and YYZ,3512,33 hr 35 min,Air Canada,
+2026-11-18,2027-01-16,other,DXB and New York,5311,57 hr 35 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-18,2027-01-21,QF/LA,SYD and SCL,4580,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-18,2027-01-21,QF/LA,SYD and SCL,4741,29 hr 45 min,Qantas and Avianca,cheapest without a Wamos-operated leg
+2026-11-18,2027-01-21,AC,YVR and YYZ,2612,33 hr 35 min,Air Canada,
+2026-11-18,2027-01-21,other,DXB and New York,4857,57 hr 35 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-18,2027-01-26,QF/LA,SYD and SCL,4453,30 hr 20 min,Qantas and Avianca,
+2026-11-18,2027-01-26,AC,YVR and YYZ,2555,33 hr 35 min,Air Canada,
+2026-11-18,2027-01-26,other,DXB and New York,4451,57 hr 35 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-18,2027-01-31,QF/LA,SYD and SCL,3811,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-18,2027-01-31,QF/LA,SYD and SCL,4221,29 hr 45 min,Qantas and Avianca,cheapest without a Wamos-operated leg
+2026-11-18,2027-01-31,AC,YVR and YYZ,2125,33 hr 35 min,Air Canada,
+2026-11-18,2027-01-31,other,DXB and LHR,4813,40 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-19,2027-01-06,QF/LA,MEL and SCL,4603,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-19,2027-01-06,AC,YVR and YUL,3354,33 hr 35 min,Air Canada,
+2026-11-19,2027-01-06,other,DXB and LHR,6564,45 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-19,2027-01-11,QF/LA,MEL and SCL,4371,29 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-19,2027-01-11,AC,YVR and YUL,3310,33 hr 35 min,Air Canada,
+2026-11-19,2027-01-11,other,DXB and LHR,5968,45 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-19,2027-01-16,QF/LA,SYD and SCL,4580,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-19,2027-01-16,AC,YVR and YUL,3935,33 hr 35 min,Air Canada,
+2026-11-19,2027-01-21,QF/LA,SYD and SCL,4580,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-19,2027-01-21,AC,YVR and YUL,3035,33 hr 35 min,Air Canada,
+2026-11-19,2027-01-26,QF/LA,SYD and SCL,4576,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-19,2027-01-26,AC,YVR and YUL,2979,33 hr 35 min,Air Canada,
+2026-11-19,2027-01-26,other,DXB and LHR,5199,45 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-19,2027-01-31,QF/LA,SYD and SCL,3811,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-19,2027-01-31,AC,YVR and YUL,2549,33 hr 35 min,Air Canada,
+2026-11-20,2027-01-06,QF/LA,MEL and SCL,4781,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-20,2027-01-06,QF/LA,AKL and SCL,4890,35 hr 5 min,Qantas and LATAM,cheapest without a Wamos-operated leg
+2026-11-20,2027-01-06,AC,YVR and YYZ,3410,33 hr 35 min,Air Canada,
+2026-11-20,2027-01-06,other,PER and DOH,4505,58 hr 45 min,Virgin Australia and Qatar Airways,over 36 hours or three stops
+2026-11-20,2027-01-11,QF/LA,MEL and SCL,4549,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-20,2027-01-11,QF/LA,AKL and SCL,4670,35 hr 5 min,Qantas and LATAM,cheapest without a Wamos-operated leg
+2026-11-20,2027-01-11,AC,YVR and YYZ,3367,33 hr 35 min,Air Canada,
+2026-11-20,2027-01-16,QF/LA,MEL and SCL,4781,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-20,2027-01-16,QF/LA,AKL and SCL,4948,35 hr 5 min,Qantas and LATAM,cheapest without a Wamos-operated leg
+2026-11-20,2027-01-16,AC,YVR and YYZ,3992,33 hr 35 min,Air Canada,
+2026-11-20,2027-01-21,QF/LA,SYD and SCL,4854,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-20,2027-01-21,QF/LA,AKL and SCL,5178,35 hr 5 min,Qantas and LATAM,cheapest without a Wamos-operated leg
+2026-11-20,2027-01-21,AC,YVR and YYZ,3092,33 hr 35 min,Air Canada,
+2026-11-20,2027-01-26,QF/LA,MEL and SCL,4781,31 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-20,2027-01-26,AC,YVR and YYZ,3035,33 hr 35 min,Air Canada,
+2026-11-20,2027-01-26,other,DXB and LHR,5246,40 hr 40 min,Emirates and Avianca,over 36 hours or three stops
+2026-11-20,2027-01-31,QF/LA,SYD and SCL,4087,30 hr 10 min,Qantas and LATAM,one leg operated by Wamos for LATAM
+2026-11-20,2027-01-31,AC,YVR and YYZ,2605,33 hr 35 min,Air Canada,
+2026-11-20,2027-01-31,other,PER and DOH,3645,58 hr 45 min,Virgin Australia and Qatar Airways,over 36 hours or three stops
